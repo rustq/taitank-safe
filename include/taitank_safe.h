@@ -10,3 +10,10 @@ public:
 };
 
 std::unique_ptr<BlobstoreClient> new_blobstore_client();
+
+class TaitankSafeNode {
+public:
+  TaitankSafeNode();
+};
+
+std::unique_ptr<TaitankSafeNode> node_create();

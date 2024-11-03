@@ -37,3 +37,10 @@ uint64_t BlobstoreClient::put(MultiBuf &buf) const {
   auto blobid = std::hash<std::string>{}(contents);
   return blobid;
 }
+
+TaitankSafeNode::TaitankSafeNode() {}
+
+std::unique_ptr<TaitankSafeNode> node_create() {
+  return std::unique_ptr<TaitankSafeNode>(new TaitankSafeNode());
+}
+
