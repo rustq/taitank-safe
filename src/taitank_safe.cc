@@ -1,11 +1,10 @@
-#include "taitank-safe/include/blobstore.h"
+#include "taitank-safe/include/taitank_safe.h"
 #include "taitank-safe/src/lib.rs.h"
 #include <functional>
 #include <string>
 
 #include "taitank-safe/include/taitank/src/taitank_util.h"
 #include "taitank-safe/include/taitank/src/taitank.h"
-#include "taitank-safe/include/mylib/mb.h"
 
 
 BlobstoreClient::BlobstoreClient() {}
@@ -33,7 +32,6 @@ uint64_t BlobstoreClient::put(MultiBuf &buf) const {
   printf("node->GetWidth() = %f\n", taitank::GetWidth(node));
 
   printf("taitank::FloatIsEqual(1.0, 1.0)) = %d\n", taitank::FloatIsEqual(1.0, 1.0));
-  printf("IsFloat2(1.0) = %d\n", IsFloat2(2.0));
 
   // Pretend we did something useful to persist the data.
   auto blobid = std::hash<std::string>{}(contents);

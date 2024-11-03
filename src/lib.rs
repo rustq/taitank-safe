@@ -14,7 +14,7 @@ mod ffi {
     }
     
     unsafe extern "C++" {
-        include!("taitank-safe/include/blobstore.h");
+        include!("taitank-safe/include/taitank_safe.h");
 
         type BlobstoreClient;
 
