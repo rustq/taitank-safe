@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include "taitank-safe/include/taitank/src/taitank.h"
 
 struct MultiBuf;
 
@@ -13,7 +14,11 @@ std::unique_ptr<BlobstoreClient> new_blobstore_client();
 
 class TaitankSafeNode {
 public:
-  TaitankSafeNode();
+  TaitankSafeNode(taitank::TaitankNodeRef r);
+  bool get_w() const;
+private:
+  std::unique_ptr<taitank::TaitankNodeRef> ref;
+  float w;
 };
 
 std::unique_ptr<TaitankSafeNode> node_create();

@@ -4,6 +4,7 @@
 #include <string>
 
 #include "taitank-safe/include/taitank/src/taitank_util.h"
+#include "taitank-safe/include/taitank/src/taitank_node.h"
 #include "taitank-safe/include/taitank/src/taitank.h"
 
 
@@ -38,9 +39,17 @@ uint64_t BlobstoreClient::put(MultiBuf &buf) const {
   return blobid;
 }
 
-TaitankSafeNode::TaitankSafeNode() {}
+TaitankSafeNode::TaitankSafeNode(taitank::TaitankNodeRef r) {
+  // ref = std::unique_ptr<TaitankNodeRef>(r);
+  w = 2.0;
+}
+
+bool TaitankSafeNode::get_w() const {
+  return w == 2.0;
+}
 
 std::unique_ptr<TaitankSafeNode> node_create() {
-  return std::unique_ptr<TaitankSafeNode>(new TaitankSafeNode());
+  taitank::TaitankNodeRef ref = new taitank::TaitankNode();
+  return std::unique_ptr<TaitankSafeNode>(new TaitankSafeNode(ref));
 }
 
