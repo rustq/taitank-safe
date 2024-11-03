@@ -24,6 +24,7 @@ mod ffi {
         type TaitankSafeNode;
         fn node_create() -> UniquePtr<TaitankSafeNode>;
         fn get_w(self: &TaitankSafeNode) -> bool;
+        fn set_width(self: &TaitankSafeNode, width: f64);
     }
 }
 
@@ -55,5 +56,6 @@ mod tests {
     fn it_works() {
         let node = ffi::node_create();
         assert!(node.get_w() == true);
+        node.set_width(200.0);
     }
 }

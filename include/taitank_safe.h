@@ -16,8 +16,9 @@ class TaitankSafeNode {
 public:
   TaitankSafeNode(taitank::TaitankNodeRef r);
   bool get_w() const;
+  void set_width(double width) const;
 private:
-  std::unique_ptr<taitank::TaitankNodeRef> ref;
+  taitank::TaitankNodeRef ref;
   float w;
 };
 

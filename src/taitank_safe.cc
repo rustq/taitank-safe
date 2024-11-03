@@ -41,11 +41,16 @@ uint64_t BlobstoreClient::put(MultiBuf &buf) const {
 
 TaitankSafeNode::TaitankSafeNode(taitank::TaitankNodeRef r) {
   // ref = std::unique_ptr<TaitankNodeRef>(r);
+  ref = r;
   w = 2.0;
 }
 
 bool TaitankSafeNode::get_w() const {
   return w == 2.0;
+}
+
+void TaitankSafeNode::set_width(double width) const {
+  taitank::SetWidth(ref, width);
 }
 
 std::unique_ptr<TaitankSafeNode> node_create() {
