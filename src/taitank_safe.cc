@@ -1,5 +1,4 @@
 #include "taitank-safe/include/taitank_safe.h"
-#include "taitank-safe/src/lib.rs.h"
 #include <functional>
 #include <string>
 
@@ -8,53 +7,30 @@
 #include "taitank-safe/include/taitank/src/taitank.h"
 
 
-BlobstoreClient::BlobstoreClient() {}
-
-std::unique_ptr<BlobstoreClient> new_blobstore_client() {
-  return std::unique_ptr<BlobstoreClient>(new BlobstoreClient());
+TaitankSafeNode::TaitankSafeNode() {
+  ref = new taitank::TaitankNode();
 }
 
-uint64_t BlobstoreClient::put(MultiBuf &buf) const {
-  // Traverse the caller's chunk iterator.
-  std::string contents;
-  while (true) {
-    auto chunk = next_chunk(buf);
-    if (chunk.size() == 0) {
-      break;
-    }
-    contents.append(reinterpret_cast<const char *>(chunk.data()), chunk.size());
-  }
-
-  taitank::TaitankNodeRef node = taitank::NodeCreate();
-  taitank::SetWidth(node, 100);
-  taitank::SetHeight(node, 100);
-  taitank::DoLayout(node, VALUE_UNDEFINED, VALUE_UNDEFINED);
-  printf("node->GetTop() = %f\n", taitank::GetTop(node));
-  printf("node->GetWidth() = %f\n", taitank::GetWidth(node));
-
-  printf("taitank::FloatIsEqual(1.0, 1.0)) = %d\n", taitank::FloatIsEqual(1.0, 1.0));
-
-  // Pretend we did something useful to persist the data.
-  auto blobid = std::hash<std::string>{}(contents);
-  return blobid;
-}
-
-TaitankSafeNode::TaitankSafeNode(taitank::TaitankNodeRef r) {
-  // ref = std::unique_ptr<TaitankNodeRef>(r);
-  ref = r;
-  w = 2.0;
-}
-
-bool TaitankSafeNode::get_w() const {
-  return w == 2.0;
+std::unique_ptr<TaitankSafeNode> node_create() {
+  return std::unique_ptr<TaitankSafeNode>(new TaitankSafeNode());
 }
 
 void TaitankSafeNode::set_width(double width) const {
   taitank::SetWidth(ref, width);
 }
 
-std::unique_ptr<TaitankSafeNode> node_create() {
-  taitank::TaitankNodeRef ref = new taitank::TaitankNode();
-  return std::unique_ptr<TaitankSafeNode>(new TaitankSafeNode(ref));
+void TaitankSafeNode::set_height(double height) const {
+  taitank::SetHeight(ref, height);
 }
 
+void TaitankSafeNode::do_layout(double parent_width, double parent_height) const {
+  taitank::DoLayout(ref, parent_width, parent_height);
+}
+
+double TaitankSafeNode::get_top() const {
+  return taitank::GetTop(ref);
+}
+
+double TaitankSafeNode::get_width() const {
+  return taitank::GetWidth(ref);
+}

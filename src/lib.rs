@@ -1,51 +1,17 @@
-
 #[cxx::bridge]
-mod ffi {
+pub mod ffi {
 
-    struct BlobMetadata {
-        size: usize,
-        tags: Vec<String>,
-    }
-
-    extern "Rust" {
-        type MultiBuf;
-
-        fn next_chunk(buf: &mut MultiBuf) -> &[u8];
-    }
-    
     unsafe extern "C++" {
         include!("taitank-safe/include/taitank_safe.h");
 
-        type BlobstoreClient;
-
-        fn new_blobstore_client() -> UniquePtr<BlobstoreClient>;
-        fn put(self: &BlobstoreClient, parts: &mut MultiBuf) -> u64;
-
         type TaitankSafeNode;
         fn node_create() -> UniquePtr<TaitankSafeNode>;
-        fn get_w(self: &TaitankSafeNode) -> bool;
         fn set_width(self: &TaitankSafeNode, width: f64);
+        fn set_height(self: &TaitankSafeNode, height: f64);
+        fn do_layout(self: &TaitankSafeNode, parent_width: f64, parent_height: f64);
+        fn get_top(self: &TaitankSafeNode) -> f64;
+        fn get_width(self: &TaitankSafeNode) -> f64;
     }
-}
-
-pub struct MultiBuf {
-    chunks: Vec<Vec<u8>>,
-    pos: usize,
-}
-
-pub fn next_chunk(buf: &mut MultiBuf) -> &[u8] {
-    let next = buf.chunks.get(buf.pos);
-    buf.pos += 1;
-    next.map_or(&[], Vec::as_slice)
-}
-
-fn f() {
-    let client = ffi::new_blobstore_client();
-    let chunks = vec![b"fearless".to_vec(), b"concurrency".to_vec()];
-    let mut buf = MultiBuf { chunks, pos: 0 };
-    let blobid = client.put(&mut buf);
-    println!("blobid = {}", blobid);
-    println!("Hello, world!");
 }
 
 #[cfg(test)]
@@ -55,7 +21,11 @@ mod tests {
     #[test]
     fn it_works() {
         let node = ffi::node_create();
-        assert!(node.get_w() == true);
         node.set_width(200.0);
+        node.set_height(200.0);
+        node.do_layout(std::f64::NAN, std::f64::NAN);
+
+        assert_eq!(node.get_top(), 0.0);
+        assert_eq!(node.get_width(), 200.0);
     }
 }
