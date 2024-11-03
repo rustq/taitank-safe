@@ -1,6 +1,17 @@
+use std::process::Command;
 
 fn main() {
-    cxx_build::bridge("src/main.rs")
+
+    Command::new("git")
+        .args(["submodule", "init"])
+        .status()
+        .expect("Unable to initialize git submodules");
+    Command::new("git")
+        .args(["submodule", "update"])
+        .status()
+        .expect("Unable to update the submodule repositories");
+
+    cxx_build::bridge("src/lib.rs")
         .file("src/blobstore.cc")
         .file("include/mylib/mb.cc")
         .file("include/taitank/src/taitank.cc")
@@ -12,7 +23,7 @@ fn main() {
         .file("include/taitank/src/taitank_cache.cc")
         .file("include/taitank/src/taitank_util.cc")
         .std("c++17")
-        .compile("cxx-demo");
+        .compile("taitank-safe");
 
     println!("cargo:rerun-if-changed=src/main.rs");
     println!("cargo:rerun-if-changed=src/blobstore.cc");

@@ -1,11 +1,11 @@
-#include "cxx-demo/include/blobstore.h"
-#include "cxx-demo/src/main.rs.h"
+#include "taitank-safe/include/blobstore.h"
+#include "taitank-safe/src/lib.rs.h"
 #include <functional>
 #include <string>
 
-#include "cxx-demo/include/taitank/src/taitank_util.h"
-#include "cxx-demo/include/taitank/src/taitank.h"
-#include "cxx-demo/include/mylib/mb.h"
+#include "taitank-safe/include/taitank/src/taitank_util.h"
+#include "taitank-safe/include/taitank/src/taitank.h"
+#include "taitank-safe/include/mylib/mb.h"
 
 
 BlobstoreClient::BlobstoreClient() {}

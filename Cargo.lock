@@ -49,14 +49,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "cxx-demo"
-version = "0.1.0"
-dependencies = [
- "cxx",
- "cxx-build",
-]
-
-[[package]]
 name = "cxxbridge-flags"
 version = "1.0.129"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -127,6 +119,14 @@ dependencies = [
  "proc-macro2",
  "quote",
  "unicode-ident",
+]
+
+[[package]]
+name = "taitank-safe"
+version = "0.0.0-dev.1"
+dependencies = [
+ "cxx",
+ "cxx-build",
 ]
 
 [[package]]
