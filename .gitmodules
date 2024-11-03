@@ -1,0 +1,3 @@
+[submodule "include/taitank"]
+	path = include/taitank
+	url = git@github.com:Tencent/Taitank.git
