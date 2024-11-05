@@ -9,8 +9,10 @@ pub mod ffi {
         fn set_width(self: &TaitankSafeNode, width: f64);
         fn set_height(self: &TaitankSafeNode, height: f64);
         fn do_layout(self: &TaitankSafeNode, parent_width: f64, parent_height: f64);
+        fn get_left(self: &TaitankSafeNode) -> f64;
         fn get_top(self: &TaitankSafeNode) -> f64;
         fn get_width(self: &TaitankSafeNode) -> f64;
+        fn get_height(self: &TaitankSafeNode) -> f64;
     }
 }
 
@@ -21,11 +23,13 @@ mod tests {
     #[test]
     fn it_works() {
         let node = ffi::node_create();
-        node.set_width(200.0);
-        node.set_height(200.0);
+        node.set_width(100.0);
+        node.set_height(100.0);
         node.do_layout(std::f64::NAN, std::f64::NAN);
 
+        assert_eq!(node.get_left(), 0.0);
         assert_eq!(node.get_top(), 0.0);
-        assert_eq!(node.get_width(), 200.0);
+        assert_eq!(node.get_width(), 100.0);
+        assert_eq!(node.get_height(), 100.0);
     }
 }

@@ -8,7 +8,7 @@
 
 
 TaitankSafeNode::TaitankSafeNode() {
-  ref = new taitank::TaitankNode();
+  ptr = new taitank::TaitankNode();
 }
 
 std::unique_ptr<TaitankSafeNode> node_create() {
@@ -16,21 +16,29 @@ std::unique_ptr<TaitankSafeNode> node_create() {
 }
 
 void TaitankSafeNode::set_width(double width) const {
-  taitank::SetWidth(ref, width);
+  taitank::SetWidth(ptr, width);
 }
 
 void TaitankSafeNode::set_height(double height) const {
-  taitank::SetHeight(ref, height);
+  taitank::SetHeight(ptr, height);
 }
 
 void TaitankSafeNode::do_layout(double parent_width, double parent_height) const {
-  taitank::DoLayout(ref, parent_width, parent_height);
+  taitank::DoLayout(ptr, parent_width, parent_height);
+}
+
+double TaitankSafeNode::get_left() const {
+  return taitank::GetLeft(ptr);
 }
 
 double TaitankSafeNode::get_top() const {
-  return taitank::GetTop(ref);
+  return taitank::GetTop(ptr);
 }
 
 double TaitankSafeNode::get_width() const {
-  return taitank::GetWidth(ref);
+  return taitank::GetWidth(ptr);
+}
+
+double TaitankSafeNode::get_height() const {
+  return taitank::GetHeight(ptr);
 }
