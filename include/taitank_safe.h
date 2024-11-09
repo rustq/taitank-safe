@@ -5,6 +5,7 @@
 class TaitankSafeNode {
 public:
   TaitankSafeNode();
+  ~TaitankSafeNode();
   void set_width(double width) const;
   void set_height(double height) const;
   void do_layout(double parent_width, double parent_height) const;

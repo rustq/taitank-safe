@@ -1,7 +1,5 @@
+#include <iostream>
 #include "taitank-safe/include/taitank_safe.h"
-#include <functional>
-#include <string>
-
 #include "taitank-safe/include/taitank/src/taitank_util.h"
 #include "taitank-safe/include/taitank/src/taitank_node.h"
 #include "taitank-safe/include/taitank/src/taitank.h"
@@ -9,6 +7,10 @@
 
 TaitankSafeNode::TaitankSafeNode() {
   ptr = new taitank::TaitankNode();
+}
+
+TaitankSafeNode::~TaitankSafeNode() {
+  taitank::NodeFreeRecursive(ptr);
 }
 
 std::unique_ptr<TaitankSafeNode> node_create() {

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/include/taitank" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/target/debug/build/taitank-safe-d9af1eb214358b1a/out/cxxbridge/crate/taitank-safe" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/target/debug/build/taitank-safe-de7c18a42a1653d7/out/cxxbridge/crate/taitank-safe" vcs="Git" />
+  </component>
+</project>
