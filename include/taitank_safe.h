@@ -8,6 +8,9 @@ public:
   ~TaitankSafeNode();
   void set_width(double width) const;
   void set_height(double height) const;
+
+  void set_direction(int direction) const;
+
   void do_layout(double parent_width, double parent_height) const;
   double get_left() const;
   double get_top() const;

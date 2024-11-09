@@ -25,6 +25,23 @@ void TaitankSafeNode::set_height(double height) const {
   taitank::SetHeight(ptr, height);
 }
 
+void TaitankSafeNode::set_direction(int direction) const {
+  switch (direction) {
+    case 0: {
+      taitank::SetDirection(ptr, taitank::TaitankDirection::DIRECTION_INHERIT);
+      break;
+    }
+    case 1: {
+      taitank::SetDirection(ptr, taitank::TaitankDirection::DIRECTION_LTR);
+      break;
+    }
+    case 2: {
+      taitank::SetDirection(ptr, taitank::TaitankDirection::DIRECTION_RTL);
+      break;
+    }
+  }
+}
+
 void TaitankSafeNode::do_layout(double parent_width, double parent_height) const {
   taitank::DoLayout(ptr, parent_width, parent_height);
 }
