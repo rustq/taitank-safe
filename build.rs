@@ -11,7 +11,7 @@ fn main() {
         .status()
         .expect("Unable to update the submodule repositories");
 
-    cxx_build::bridge("src/lib.rs")
+    cxx_build::bridge("src/safe.rs")
         .file("src/safe.cc")
         .file("include/taitank/src/taitank.cc")
         .file("include/taitank/src/taitank_style.cc")
