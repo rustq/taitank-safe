@@ -12,7 +12,7 @@ fn main() {
         .expect("Unable to update the submodule repositories");
 
     cxx_build::bridge("src/lib.rs")
-        .file("src/taitank_safe.cc")
+        .file("src/safe.cc")
         .file("include/taitank/src/taitank.cc")
         .file("include/taitank/src/taitank_style.cc")
         .file("include/taitank/src/taitank_node.cc")
@@ -25,6 +25,6 @@ fn main() {
         .compile("taitank-safe");
 
     println!("cargo:rerun-if-changed=src/main.rs");
-    println!("cargo:rerun-if-changed=src/taitank_safe.cc");
-    println!("cargo:rerun-if-changed=include/taitank_safe.h");
+    println!("cargo:rerun-if-changed=src/safe.cc");
+    println!("cargo:rerun-if-changed=include/safe.h");
 }

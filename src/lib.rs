@@ -4,7 +4,7 @@ use cxx::UniquePtr;
 mod ffi {
 
     unsafe extern "C++" {
-        include!("taitank-safe/include/taitank_safe.h");
+        include!("taitank-safe/include/safe.h");
 
         type TaitankSafeNode;
         fn node_create() -> UniquePtr<TaitankSafeNode>;
