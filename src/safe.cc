@@ -1,8 +1,8 @@
 #include <iostream>
-#include "taitank-safe/include/safe.h"
-#include "taitank-safe/include/taitank/src/taitank_util.h"
-#include "taitank-safe/include/taitank/src/taitank_node.h"
-#include "taitank-safe/include/taitank/src/taitank.h"
+#include "../include/safe.h"
+#include "../include/taitank/src/taitank_util.h"
+#include "../include/taitank/src/taitank_node.h"
+#include "../include/taitank/src/taitank.h"
 
 TaitankSafeNode::TaitankSafeNode() {
   ptr = new taitank::TaitankNode();
@@ -57,12 +57,46 @@ void set_flex_basis(const std::unique_ptr<TaitankSafeNode> & node, double flex_b
   taitank::SetFlexBasis(node->ptr, flex_basis);
 }
 
+void set_flex_direction(const std::unique_ptr<TaitankSafeNode> & node, int flex_direction) {
+  switch (flex_direction) {
+    case 0: {
+      taitank::SetFlexDirection(node->ptr, taitank::FlexDirection::FLEX_DIRECTION_ROW);
+      break;
+    }
+    case 1: {
+      taitank::SetFlexDirection(node->ptr, taitank::FlexDirection::FLEX_DIRECTION_ROW_REVERSE);
+      break;
+    }
+    case 2: {
+      taitank::SetFlexDirection(node->ptr, taitank::FlexDirection::FLEX_DIRECTION_COLUMN);
+      break;
+    }
+    case 3: {
+      taitank::SetFlexDirection(node->ptr, taitank::FlexDirection::FLEX_DIRECTION_COLUNM_REVERSE);
+      break;
+    }
+  }
+}
+
 void insert_child(const std::unique_ptr<TaitankSafeNode> & node, const std::unique_ptr<TaitankSafeNode> & child, int index) {
   taitank::InsertChild(node->ptr, child->ptr, index);
 }
 
-void do_layout(const std::unique_ptr<TaitankSafeNode> & node, double parent_width, double parent_height) {
-  taitank::DoLayout(node->ptr, parent_width, parent_height);
+void do_layout(const std::unique_ptr<TaitankSafeNode> & node, double parent_width, double parent_height, int direction) {
+  switch (direction) {
+    case 0: {
+      taitank::DoLayout(node->ptr, parent_width, parent_height, taitank::TaitankDirection::DIRECTION_INHERIT);
+      break;
+    }
+    case 1: {
+      taitank::DoLayout(node->ptr, parent_width, parent_height, taitank::TaitankDirection::DIRECTION_LTR);
+      break;
+    }
+    case 2: {
+      taitank::DoLayout(node->ptr, parent_width, parent_height, taitank::TaitankDirection::DIRECTION_RTL);
+      break;
+    }
+  }
 }
 
 double get_width(const std::unique_ptr<TaitankSafeNode> & node) {

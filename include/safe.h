@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-#include "taitank-safe/include/taitank/src/taitank.h"
+#include "./taitank/src/taitank.h"
 
 class TaitankSafeNode {
 public:
@@ -28,8 +28,9 @@ void set_flex(const std::unique_ptr<TaitankSafeNode> & node, double flex);
 void set_flex_grow(const std::unique_ptr<TaitankSafeNode> & node, double flex_grow);
 void set_flex_shrink(const std::unique_ptr<TaitankSafeNode> & node, double flex_shrink);
 void set_flex_basis(const std::unique_ptr<TaitankSafeNode> & node, double flex_basis);
+void set_flex_direction(const std::unique_ptr<TaitankSafeNode> & node, int direction);
 void insert_child(const std::unique_ptr<TaitankSafeNode> & node, const std::unique_ptr<TaitankSafeNode> & child, int index);
-void do_layout(const std::unique_ptr<TaitankSafeNode> & node, double parent_width, double parent_height);
+void do_layout(const std::unique_ptr<TaitankSafeNode> & node, double parent_width, double parent_height, int direction);
 double get_width(const std::unique_ptr<TaitankSafeNode> & node);
 double get_height(const std::unique_ptr<TaitankSafeNode> & node);
 double get_left(const std::unique_ptr<TaitankSafeNode> & node);
