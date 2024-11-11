@@ -41,6 +41,26 @@ void set_direction(const std::unique_ptr<TaitankSafeNode> & node, int direction)
   }
 }
 
+void set_flex(const std::unique_ptr<TaitankSafeNode> & node, double flex) {
+  taitank::SetFlex(node->ptr, flex);
+}
+
+void set_flex_grow(const std::unique_ptr<TaitankSafeNode> & node, double flex_grow) {
+  taitank::SetFlexGrow(node->ptr, flex_grow);
+}
+
+void set_flex_shrink(const std::unique_ptr<TaitankSafeNode> & node, double flex_shrink) {
+  taitank::SetFlexShrink(node->ptr, flex_shrink);
+}
+
+void set_flex_basis(const std::unique_ptr<TaitankSafeNode> & node, double flex_basis) {
+  taitank::SetFlexBasis(node->ptr, flex_basis);
+}
+
+void insert_child(const std::unique_ptr<TaitankSafeNode> & node, const std::unique_ptr<TaitankSafeNode> & child, int index) {
+  taitank::InsertChild(node->ptr, child->ptr, index);
+}
+
 void do_layout(const std::unique_ptr<TaitankSafeNode> & node, double parent_width, double parent_height) {
   taitank::DoLayout(node->ptr, parent_width, parent_height);
 }

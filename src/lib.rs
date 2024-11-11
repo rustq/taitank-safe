@@ -30,6 +30,21 @@ pub fn set_height(node: &TaitankSafeNode, height: f64) {
 pub fn set_direction(node: &TaitankSafeNode, direction: Direction) {
     ffi::set_direction(&node.unique_ptr, direction as i32);
 }
+pub fn set_flex(node: &TaitankSafeNode, flex: f64) {
+    ffi::set_flex(&node.unique_ptr, flex);
+}
+pub fn set_flex_grow(node: &TaitankSafeNode, flex_grow: f64) {
+    ffi::set_flex_grow(&node.unique_ptr, flex_grow);
+}
+pub fn set_flex_shrink(node: &TaitankSafeNode, flex_shrink: f64) {
+    ffi::set_flex_shrink(&node.unique_ptr, flex_shrink);
+}
+pub fn set_flex_basis(node: &TaitankSafeNode, flex_basis: f64) {
+    ffi::set_flex_basis(&node.unique_ptr, flex_basis);
+}
+pub fn insert_child(node: &TaitankSafeNode, child: &TaitankSafeNode, index: i32) {
+    ffi::insert_child(&node.unique_ptr, &child.unique_ptr, index);
+}
 pub fn do_layout(node: &TaitankSafeNode, parent_width: f64, parent_height: f64) {
     ffi::do_layout(&node.unique_ptr, parent_width, parent_height);
 }
@@ -62,5 +77,54 @@ mod tests {
         assert_eq!(get_top(&node), 0.0);
         assert_eq!(get_width(&node), 100.0);
         assert_eq!(get_height(&node), 100.0);
+    }
+
+    #[test]
+    fn flex_basis_flex_grow_column() {
+            let root = node_create();
+            set_width(&root, 100.0);
+            set_height(&root, 100.0);
+            let root_child0 = node_create();
+            set_flex_grow(&root_child0, 1.0);
+            set_flex_basis(&root_child0, 50.0);
+            insert_child(&root, &root_child0, 0);
+
+            let root_child1 = node_create();
+            set_flex_grow(&root_child1, 1.0);
+            insert_child(&root, &root_child1, 1);
+            do_layout(&root, std::f64::NAN, std::f64::NAN);
+
+            assert_eq!(0.0, get_left(&root));
+            assert_eq!(0.0, get_top(&root));
+            assert_eq!(100.0, get_width(&root));
+            assert_eq!(100.0, get_height(&root));
+
+            assert_eq!(0.0, get_left(&root_child0));
+            assert_eq!(0.0, get_top(&root_child0));
+            assert_eq!(100.0, get_width(&root_child0));
+            assert_eq!(75.0, get_height(&root_child0));
+
+            assert_eq!(0.0, get_left(&root_child1));
+            assert_eq!(75.0, get_top(&root_child1));
+            assert_eq!(100.0, get_width(&root_child1));
+            assert_eq!(25.0, get_height(&root_child1));
+
+            do_layout(&root, std::f64::NAN, std::f64::NAN);
+
+            assert_eq!(0.0, get_left(&root));
+            assert_eq!(0.0, get_top(&root));
+            assert_eq!(100.0, get_width(&root));
+            assert_eq!(100.0, get_height(&root));
+
+            assert_eq!(0.0, get_left(&root_child0));
+            assert_eq!(0.0, get_top(&root_child0));
+            assert_eq!(100.0, get_width(&root_child0));
+            assert_eq!(75.0, get_height(&root_child0));
+
+            assert_eq!(0.0, get_left(&root_child1));
+            assert_eq!(75.0, get_top(&root_child1));
+            assert_eq!(100.0, get_width(&root_child1));
+            assert_eq!(25.0, get_height(&root_child1));
+
     }
 }
