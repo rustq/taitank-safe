@@ -1,7 +1,6 @@
 use std::process::Command;
 
 fn main() {
-
     Command::new("git")
         .args(["submodule", "init"])
         .status()
