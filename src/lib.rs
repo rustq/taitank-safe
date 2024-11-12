@@ -8,6 +8,12 @@ pub struct TaitankSafeNode {
     unique_ptr: UniquePtr<ffi::TaitankSafeNode>,
 }
 
+// impl Drop for TaitankSafeNode {
+//     fn drop(&mut self) {
+//         ffi::
+//     }
+// }
+
 #[repr(i32)]
 pub enum Direction {
     Inherit = 0,
@@ -17,10 +23,10 @@ pub enum Direction {
 
 #[repr(i32)]
 pub enum FlexDirection {
-    FlexDirectionRow,
-    FlexDirectionRowReverse,
-    FlexDirectionColumn,
-    FlexDirectionColumnReverse,
+    FlexDirectionRow = 0,
+    FlexDirectionRowReverse = 1,
+    FlexDirectionColumn = 2,
+    FlexDirectionColumnReverse = 3,
 }
 
 pub fn node_create() -> TaitankSafeNode {

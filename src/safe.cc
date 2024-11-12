@@ -9,6 +9,7 @@ TaitankSafeNode::TaitankSafeNode() {
 }
 
 TaitankSafeNode::~TaitankSafeNode() {
+  //  printf("[cxx]: TaitankSafeNode::~TaitankSafeNode()\n");
   taitank::NodeFreeRecursive(ptr);
 }
 

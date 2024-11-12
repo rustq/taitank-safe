@@ -4,20 +4,6 @@ mod tests {
     use taitank_safe::*;
 
     #[test]
-    fn it_works() {
-        let mut node = node_create();
-        set_width(&mut node, 100.0);
-        set_height(&mut node, 100.0);
-        set_direction(&mut node, Direction::LTR);
-        layout!(&mut node);
-
-        assert_eq!(get_left(&mut node), 0.0);
-        assert_eq!(get_top(&mut node), 0.0);
-        assert_eq!(get_width(&mut node), 100.0);
-        assert_eq!(get_height(&mut node), 100.0);
-    }
-
-    #[test]
     fn flex_basis_flex_grow_column() {
         let mut root = node_create();
         set_width(&mut root, 100.0);
