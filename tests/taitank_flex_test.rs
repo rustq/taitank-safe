@@ -9,7 +9,7 @@ mod tests {
         set_width(&node, 100.0);
         set_height(&node, 100.0);
         set_direction(&node, Direction::LTR);
-        do_layout(&node, std::f64::NAN, std::f64::NAN, Direction::LTR);
+        layout!(&node);
 
         assert_eq!(get_left(&node), 0.0);
         assert_eq!(get_top(&node), 0.0);
@@ -47,7 +47,7 @@ mod tests {
             assert_eq!(100.0, get_width(&root_child1));
             assert_eq!(25.0, get_height(&root_child1));
 
-            do_layout(&root, std::f64::NAN, std::f64::NAN, Direction::LTR);
+            layout!(&root);
 
             assert_eq!(0.0, get_left(&root));
             assert_eq!(0.0, get_top(&root));
@@ -80,7 +80,7 @@ mod tests {
         let root_child1 = node_create();
         set_flex_grow(&root_child1, 1.0);
         insert_child(&root, &root_child1, 1);
-        do_layout(&root, std::f64::NAN, std::f64::NAN, Direction::LTR);
+        layout!(&root);
 
         assert_eq!(0.0, get_left(&root));
         assert_eq!(0.0, get_top(&root));
@@ -131,7 +131,7 @@ mod tests {
         set_flex_basis(&root_child1, 50.0);
         insert_child(&root, &root_child1, 1);
 
-        do_layout(&root, std::f64::NAN, std::f64::NAN, Direction::LTR);
+        layout!(&root);
 
         assert_eq!(0.0, get_left(&root));
         assert_eq!(0.0, get_top(&root));
@@ -182,7 +182,7 @@ mod tests {
         set_flex_basis(&root_child1, 50.0);
         insert_child(&root, &root_child1, 1);
 
-        do_layout(&root, std::f64::NAN, std::f64::NAN, Direction::LTR);
+        layout!(&root);
 
         assert_eq!(0.0, get_left(&root));
         assert_eq!(0.0, get_top(&root));
@@ -239,7 +239,7 @@ mod tests {
         set_height(&root_child2, 50.0);
         insert_child(&root, &root_child2, 2);
 
-        do_layout(&root, std::f64::NAN, std::f64::NAN, Direction::LTR);
+        layout!(&root);
 
         assert_eq!(0.0, get_left(&root));
         assert_eq!(0.0, get_top(&root));
@@ -307,7 +307,7 @@ mod tests {
         set_height(&root_child2, 10.0);
         insert_child(&root, &root_child2, 2);
 
-        do_layout(&root, std::f64::NAN, std::f64::NAN, Direction::LTR);
+        layout!(&root);
 
         assert_eq!(0.0, get_left(&root));
         assert_eq!(0.0, get_top(&root));
@@ -366,7 +366,7 @@ mod tests {
         set_flex_shrink(&root_child0_child0, 1.0);
         insert_child(&root_child0, &root_child0_child0, 0);
 
-        do_layout(&root, std::f64::NAN, std::f64::NAN, Direction::LTR);
+        layout!(&root);
 
         assert_eq!(0.0, get_left(&root));
         assert_eq!(0.0, get_top(&root));
@@ -420,7 +420,7 @@ mod tests {
         set_flex_grow(&root_child2, 0.4);
         insert_child(&root, &root_child2, 2);
 
-        do_layout(&root, std::f64::NAN, std::f64::NAN, Direction::LTR);
+        layout!(&root);
 
         assert_eq!(0.0, get_left(&root));
         assert_eq!(0.0, get_top(&root));

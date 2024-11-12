@@ -1,4 +1,6 @@
 mod safe;
+pub mod macros;
+
 use safe::ffi;
 use cxx::UniquePtr;
 
