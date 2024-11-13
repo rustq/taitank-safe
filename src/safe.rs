@@ -17,6 +17,8 @@ pub mod ffi {
         fn set_flex_wrap(node: &mut UniquePtr<TaitankSafeNode>, flex_wrap_node: i32);
         fn set_align_items(node: &mut UniquePtr<TaitankSafeNode>, flex_align: i32);
         fn set_min_width(node: &mut UniquePtr<TaitankSafeNode>, min_width: f64);
+        fn set_max_height(node: &mut UniquePtr<TaitankSafeNode>, max_height: f64);
+        fn set_margin(node: &mut UniquePtr<TaitankSafeNode>, css_direction: i32, value: f64);
         fn set_align_content(node: &mut UniquePtr<TaitankSafeNode>, flex_align: i32);
         fn set_justify_content(node: &mut UniquePtr<TaitankSafeNode>, flex_align: i32);
         fn insert_child(

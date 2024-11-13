@@ -164,6 +164,55 @@ void set_min_width(std::unique_ptr<TaitankSafeNode> & node, double min_width) {
   taitank::SetMinWidth(node->ptr, min_width);
 }
 
+void set_max_height(std::unique_ptr<TaitankSafeNode> & node, double max_height) {
+  taitank::SetMaxHeight(node->ptr, max_height);
+}
+
+void set_margin(std::unique_ptr<TaitankSafeNode> & node, int css_direction, double value) {
+  switch (css_direction) {
+    case 0: {
+      taitank::SetMargin(node->ptr, taitank::CSS_LEFT, value);
+      break;
+    }
+    case 1: {
+      taitank::SetMargin(node->ptr, taitank::CSS_TOP, value);
+      break;
+    }
+    case 2: {
+      taitank::SetMargin(node->ptr, taitank::CSS_RIGHT, value);
+      break;
+    }
+    case 3: {
+      taitank::SetMargin(node->ptr, taitank::CSS_BOTTOM, value);
+      break;
+    }
+    case 4: {
+      taitank::SetMargin(node->ptr, taitank::CSS_START, value);
+      break;
+    }
+    case 5: {
+      taitank::SetMargin(node->ptr, taitank::CSS_END, value);
+      break;
+    }
+    case 6: {
+      taitank::SetMargin(node->ptr, taitank::CSS_HORIZONTAL, value);
+      break;
+    }
+    case 7: {
+      taitank::SetMargin(node->ptr, taitank::CSS_VERTICAL, value);
+      break;
+    }
+    case 8: {
+      taitank::SetMargin(node->ptr, taitank::CSS_ALL, value);
+      break;
+    }
+    case -1: {
+      taitank::SetMargin(node->ptr, taitank::CSS_NONE, value);
+      break;
+    }
+  }
+}
+
 void set_align_content(std::unique_ptr<TaitankSafeNode> & node, int flex_align) {
   switch (flex_align) {
     case 0: {

@@ -43,6 +43,20 @@ pub enum FlexAlign {
     FlexAlignSpaceEvenly = 8,
 }
 
+#[repr(i32)]
+pub enum CSSDirection {
+    CSSLeft = 0,
+    CSSTop = 1,
+    CSSRight = 2,
+    CSSBottom = 3,
+    CSSStart = 4,
+    CSSEnd = 5,
+    CSSHorizontal = 6,
+    CSSVertical = 7,
+    CSSAll = 8,
+    CSSNone = -1,
+}
+
 
 pub fn node_create() -> TaitankSafeNode {
     TaitankSafeNode {
@@ -84,6 +98,14 @@ pub fn set_align_items(node: &mut TaitankSafeNode, flex_align: FlexAlign) {
 
 pub fn set_min_width(node: &mut TaitankSafeNode, min_width: f64) {
     ffi::set_min_width(&mut node.unique_ptr, min_width);
+}
+
+pub fn set_max_height(node: &mut TaitankSafeNode, max_height: f64) {
+    ffi::set_max_height(&mut node.unique_ptr, max_height);
+}
+
+pub fn set_margin(node: &mut TaitankSafeNode, css_direction: CSSDirection, value: f64) {
+    ffi::set_margin(&mut node.unique_ptr, css_direction as i32, value);
 }
 
 pub fn set_align_content(node: &mut TaitankSafeNode, flex_align: FlexAlign) {
