@@ -1,8 +1,8 @@
 [package]
 name = "taitank-safe"
-version = "0.0.0-dev.2"
+version = "0.0.1"
 description = "taitank in safe rust"
-include = ["/src", "README.md", "/include/taitank_safe.h", "/include/taitank/src", ".gitmodules", "build.rs"]
+include = ["/src", "README.md", "/include/safe.h", "/include/taitank/src", ".gitmodules", "build.rs"]
 license = "MIT"
 build = "build.rs"
 edition = "2021"
