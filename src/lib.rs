@@ -82,6 +82,18 @@ pub fn set_align_items(node: &mut TaitankSafeNode, flex_align: FlexAlign) {
     ffi::set_align_items(&mut node.unique_ptr, flex_align as i32);
 }
 
+pub fn set_min_width(node: &mut TaitankSafeNode, min_width: f64) {
+    ffi::set_min_width(&mut node.unique_ptr, min_width);
+}
+
+pub fn set_align_content(node: &mut TaitankSafeNode, flex_align: FlexAlign) {
+    ffi::set_align_content(&mut node.unique_ptr, flex_align as i32);
+}
+
+pub fn set_justify_content(node: &mut TaitankSafeNode, flex_align: FlexAlign) {
+    ffi::set_justify_content(&mut node.unique_ptr, flex_align as i32);
+}
+
 pub fn insert_child(node: &mut TaitankSafeNode, child: &mut TaitankSafeNode, index: i32) {
     ffi::insert_child(&mut node.unique_ptr, &mut child.unique_ptr, index);
 }

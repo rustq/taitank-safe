@@ -160,6 +160,92 @@ void do_layout(std::unique_ptr<TaitankSafeNode> & node, double parent_width, dou
   }
 }
 
+void set_min_width(std::unique_ptr<TaitankSafeNode> & node, double min_width) {
+  taitank::SetMinWidth(node->ptr, min_width);
+}
+
+void set_align_content(std::unique_ptr<TaitankSafeNode> & node, int flex_align) {
+  switch (flex_align) {
+    case 0: {
+      taitank::SetAlignContent(node->ptr, taitank::FlexAlign::FLEX_ALIGN_AUTO);
+      break;
+    }
+    case 1: {
+      taitank::SetAlignContent(node->ptr, taitank::FlexAlign::FLEX_ALIGN_START);
+      break;
+    }
+    case 2: {
+      taitank::SetAlignContent(node->ptr, taitank::FlexAlign::FLEX_ALIGN_CENTER);
+      break;
+    }
+    case 3: {
+      taitank::SetAlignContent(node->ptr, taitank::FlexAlign::FLEX_ALIGN_END);
+      break;
+    }
+    case 4: {
+      taitank::SetAlignContent(node->ptr, taitank::FlexAlign::FLEX_ALIGN_STRETCH);
+      break;
+    }
+    case 5: {
+      taitank::SetAlignContent(node->ptr, taitank::FlexAlign::FLEX_ALIGN_BASE_LINE);
+      break;
+    }
+    case 6: {
+      taitank::SetAlignContent(node->ptr, taitank::FlexAlign::FLEX_ALIGN_SPACE_BETWEEN);
+      break;
+    }
+    case 7: {
+      taitank::SetAlignContent(node->ptr, taitank::FlexAlign::FLEX_ALIGN_SPACE_AROUND);
+      break;
+    }
+    case 8: {
+      taitank::SetAlignContent(node->ptr, taitank::FlexAlign::FLEX_ALIGN_SPACE_EVENLY);
+      break;
+    }
+  }
+}
+
+void set_justify_content(std::unique_ptr<TaitankSafeNode> & node, int justify) {
+  switch (justify) {
+    case 0: {
+      taitank::SetJustifyContent(node->ptr, taitank::FlexAlign::FLEX_ALIGN_AUTO);
+      break;
+    }
+    case 1: {
+      taitank::SetJustifyContent(node->ptr, taitank::FlexAlign::FLEX_ALIGN_START);
+      break;
+    }
+    case 2: {
+      taitank::SetJustifyContent(node->ptr, taitank::FlexAlign::FLEX_ALIGN_CENTER);
+      break;
+    }
+    case 3: {
+      taitank::SetJustifyContent(node->ptr, taitank::FlexAlign::FLEX_ALIGN_END);
+      break;
+    }
+    case 4: {
+      taitank::SetJustifyContent(node->ptr, taitank::FlexAlign::FLEX_ALIGN_STRETCH);
+      break;
+    }
+    case 5: {
+      taitank::SetJustifyContent(node->ptr, taitank::FlexAlign::FLEX_ALIGN_BASE_LINE);
+      break;
+    }
+    case 6: {
+      taitank::SetJustifyContent(node->ptr, taitank::FlexAlign::FLEX_ALIGN_SPACE_BETWEEN);
+      break;
+    }
+    case 7: {
+      taitank::SetJustifyContent(node->ptr, taitank::FlexAlign::FLEX_ALIGN_SPACE_AROUND);
+      break;
+    }
+    case 8: {
+      taitank::SetJustifyContent(node->ptr, taitank::FlexAlign::FLEX_ALIGN_SPACE_EVENLY);
+      break;
+    }
+  }
+}
+
 double get_width(std::unique_ptr<TaitankSafeNode> & node) {
   return taitank::GetWidth(node->ptr);
 }

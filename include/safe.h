@@ -6,16 +6,6 @@ class TaitankSafeNode {
 public:
   TaitankSafeNode();
   ~TaitankSafeNode();
-//  void set_width(double width) const;
-//  void set_height(double height) const;
-//
-//  void set_direction(int direction) const;
-//
-//  void do_layout(double parent_width, double parent_height) const;
-//  double get_left() const;
-//  double get_top() const;
-//  double get_width() const;
-//  double get_height() const;
 public:
   taitank::TaitankNodeRef ptr;
 };
@@ -31,6 +21,9 @@ void set_flex_basis(std::unique_ptr<TaitankSafeNode> & node, double flex_basis);
 void set_flex_direction(std::unique_ptr<TaitankSafeNode> & node, int direction);
 void set_flex_wrap(std::unique_ptr<TaitankSafeNode> & node, int flex_wrap_node);
 void set_align_items(std::unique_ptr<TaitankSafeNode> & node, int flex_align);
+void set_min_width(std::unique_ptr<TaitankSafeNode> & node, double width);
+void set_align_content(std::unique_ptr<TaitankSafeNode> & node, int align_content);
+void set_justify_content(std::unique_ptr<TaitankSafeNode> & node, int justify_content);
 void insert_child(std::unique_ptr<TaitankSafeNode> & node, std::unique_ptr<TaitankSafeNode> & child, int index);
 void do_layout(std::unique_ptr<TaitankSafeNode> & node, double parent_width, double parent_height, int direction);
 double get_width(std::unique_ptr<TaitankSafeNode> & node);
