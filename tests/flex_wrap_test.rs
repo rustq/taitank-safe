@@ -1108,5 +1108,205 @@ mod tests {
         assert_eq!(get_width(&mut root_child4), 30.0);
         assert_eq!(get_height(&mut root_child4), 50.0);
     }
+    #[test]
+    fn wrapped_row_within_align_items_center() {
+        let mut root = node_create();
+        set_align_items(&mut root, FlexAlign::FlexAlignCenter);
+        set_width(&mut root, 200.0);
+        set_height(&mut root, 200.0);
+
+        let mut root_child0 = node_create();
+        set_flex_direction(&mut root_child0, FlexDirection::FlexDirectionRow);
+        set_flex_wrap(&mut root_child0, FlexWrapNode::FlexWrap);
+        insert_child(&mut root, &mut root_child0, 0);
+
+        let mut root_child0_child0 = node_create();
+        set_width(&mut root_child0_child0, 150.0);
+        set_height(&mut root_child0_child0, 80.0);
+        insert_child(&mut root_child0, &mut root_child0_child0, 0);
+
+        let mut root_child0_child1 = node_create();
+        set_width(&mut root_child0_child1, 80.0);
+        set_height(&mut root_child0_child1, 80.0);
+        insert_child(&mut root_child0, &mut root_child0_child1, 1);
+
+        layout!(&mut root);
+
+        assert_eq!(get_left(&mut root), 0.0);
+        assert_eq!(get_top(&mut root), 0.0);
+        assert_eq!(get_width(&mut root), 200.0);
+        assert_eq!(get_height(&mut root), 200.0);
+
+        assert_eq!(get_left(&mut root_child0), 0.0);
+        assert_eq!(get_top(&mut root_child0), 0.0);
+        assert_eq!(get_width(&mut root_child0), 200.0);
+        assert_eq!(get_height(&mut root_child0), 160.0);
+
+        assert_eq!(get_left(&mut root_child0_child0), 0.0);
+        assert_eq!(get_top(&mut root_child0_child0), 0.0);
+        assert_eq!(get_width(&mut root_child0_child0), 150.0);
+        assert_eq!(get_height(&mut root_child0_child0), 80.0);
+
+        assert_eq!(get_left(&mut root_child0_child1), 0.0);
+        assert_eq!(get_top(&mut root_child0_child1), 80.0);
+        assert_eq!(get_width(&mut root_child0_child1), 80.0);
+        assert_eq!(get_height(&mut root_child0_child1), 80.0);
+
+        layout!(&mut root, std::f64::NAN, std::f64::NAN, Direction::RTL);
+
+        assert_eq!(get_left(&mut root), 0.0);
+        assert_eq!(get_top(&mut root), 0.0);
+        assert_eq!(get_width(&mut root), 200.0);
+        assert_eq!(get_height(&mut root), 200.0);
+
+        assert_eq!(get_left(&mut root_child0), 0.0);
+        assert_eq!(get_top(&mut root_child0), 0.0);
+        assert_eq!(get_width(&mut root_child0), 200.0);
+        assert_eq!(get_height(&mut root_child0), 160.0);
+
+        assert_eq!(get_left(&mut root_child0_child0), 50.0);
+        assert_eq!(get_top(&mut root_child0_child0), 0.0);
+        assert_eq!(get_width(&mut root_child0_child0), 150.0);
+        assert_eq!(get_height(&mut root_child0_child0), 80.0);
+
+        assert_eq!(get_left(&mut root_child0_child1), 120.0);
+        assert_eq!(get_top(&mut root_child0_child1), 80.0);
+        assert_eq!(get_width(&mut root_child0_child1), 80.0);
+        assert_eq!(get_height(&mut root_child0_child1), 80.0);
+    }
+
+    #[test]
+    fn wrapped_row_within_align_items_flex_start() {
+        let mut root = node_create();
+        set_align_items(&mut root, FlexAlign::FlexAlignStart);
+        set_width(&mut root, 200.0);
+        set_height(&mut root, 200.0);
+
+        let mut root_child0 = node_create();
+        set_flex_direction(&mut root_child0, FlexDirection::FlexDirectionRow);
+        set_flex_wrap(&mut root_child0, FlexWrapNode::FlexWrap);
+        insert_child(&mut root, &mut root_child0, 0);
+
+        let mut root_child0_child0 = node_create();
+        set_width(&mut root_child0_child0, 150.0);
+        set_height(&mut root_child0_child0, 80.0);
+        insert_child(&mut root_child0, &mut root_child0_child0, 0);
+
+        let mut root_child0_child1 = node_create();
+        set_width(&mut root_child0_child1, 80.0);
+        set_height(&mut root_child0_child1, 80.0);
+        insert_child(&mut root_child0, &mut root_child0_child1, 1);
+
+        layout!(&mut root);
+
+        assert_eq!(get_left(&mut root), 0.0);
+        assert_eq!(get_top(&mut root), 0.0);
+        assert_eq!(get_width(&mut root), 200.0);
+        assert_eq!(get_height(&mut root), 200.0);
+
+        assert_eq!(get_left(&mut root_child0), 0.0);
+        assert_eq!(get_top(&mut root_child0), 0.0);
+        assert_eq!(get_width(&mut root_child0), 200.0);
+        assert_eq!(get_height(&mut root_child0), 160.0);
+
+        assert_eq!(get_left(&mut root_child0_child0), 0.0);
+        assert_eq!(get_top(&mut root_child0_child0), 0.0);
+        assert_eq!(get_width(&mut root_child0_child0), 150.0);
+        assert_eq!(get_height(&mut root_child0_child0), 80.0);
+
+        assert_eq!(get_left(&mut root_child0_child1), 0.0);
+        assert_eq!(get_top(&mut root_child0_child1), 80.0);
+        assert_eq!(get_width(&mut root_child0_child1), 80.0);
+        assert_eq!(get_height(&mut root_child0_child1), 80.0);
+
+        layout!(&mut root, std::f64::NAN, std::f64::NAN, Direction::RTL);
+
+        assert_eq!(get_left(&mut root), 0.0);
+        assert_eq!(get_top(&mut root), 0.0);
+        assert_eq!(get_width(&mut root), 200.0);
+        assert_eq!(get_height(&mut root), 200.0);
+
+        assert_eq!(get_left(&mut root_child0), 0.0);
+        assert_eq!(get_top(&mut root_child0), 0.0);
+        assert_eq!(get_width(&mut root_child0), 200.0);
+        assert_eq!(get_height(&mut root_child0), 160.0);
+
+        assert_eq!(get_left(&mut root_child0_child0), 50.0);
+        assert_eq!(get_top(&mut root_child0_child0), 0.0);
+        assert_eq!(get_width(&mut root_child0_child0), 150.0);
+        assert_eq!(get_height(&mut root_child0_child0), 80.0);
+
+        assert_eq!(get_left(&mut root_child0_child1), 120.0);
+        assert_eq!(get_top(&mut root_child0_child1), 80.0);
+        assert_eq!(get_width(&mut root_child0_child1), 80.0);
+        assert_eq!(get_height(&mut root_child0_child1), 80.0);
+    }
+
+    #[test]
+    fn wrapped_row_within_align_items_flex_end() {
+        let mut root = node_create();
+        set_align_items(&mut root, FlexAlign::FlexAlignEnd);
+        set_width(&mut root, 200.0);
+        set_height(&mut root, 200.0);
+
+        let mut root_child0 = node_create();
+        set_flex_direction(&mut root_child0, FlexDirection::FlexDirectionRow);
+        set_flex_wrap(&mut root_child0, FlexWrapNode::FlexWrap);
+        insert_child(&mut root, &mut root_child0, 0);
+
+        let mut root_child0_child0 = node_create();
+        set_width(&mut root_child0_child0, 150.0);
+        set_height(&mut root_child0_child0, 80.0);
+        insert_child(&mut root_child0, &mut root_child0_child0, 0);
+
+        let mut root_child0_child1 = node_create();
+        set_width(&mut root_child0_child1, 80.0);
+        set_height(&mut root_child0_child1, 80.0);
+        insert_child(&mut root_child0, &mut root_child0_child1, 1);
+
+        layout!(&mut root);
+
+        assert_eq!(get_left(&mut root), 0.0);
+        assert_eq!(get_top(&mut root), 0.0);
+        assert_eq!(get_width(&mut root), 200.0);
+        assert_eq!(get_height(&mut root), 200.0);
+
+        assert_eq!(get_left(&mut root_child0), 0.0);
+        assert_eq!(get_top(&mut root_child0), 0.0);
+        assert_eq!(get_width(&mut root_child0), 200.0);
+        assert_eq!(get_height(&mut root_child0), 160.0);
+
+        assert_eq!(get_left(&mut root_child0_child0), 0.0);
+        assert_eq!(get_top(&mut root_child0_child0), 0.0);
+        assert_eq!(get_width(&mut root_child0_child0), 150.0);
+        assert_eq!(get_height(&mut root_child0_child0), 80.0);
+
+        assert_eq!(get_left(&mut root_child0_child1), 0.0);
+        assert_eq!(get_top(&mut root_child0_child1), 80.0);
+        assert_eq!(get_width(&mut root_child0_child1), 80.0);
+        assert_eq!(get_height(&mut root_child0_child1), 80.0);
+
+        layout!(&mut root, std::f64::NAN, std::f64::NAN, Direction::RTL);
+
+        assert_eq!(get_left(&mut root), 0.0);
+        assert_eq!(get_top(&mut root), 0.0);
+        assert_eq!(get_width(&mut root), 200.0);
+        assert_eq!(get_height(&mut root), 200.0);
+
+        assert_eq!(get_left(&mut root_child0), 0.0);
+        assert_eq!(get_top(&mut root_child0), 0.0);
+        assert_eq!(get_width(&mut root_child0), 200.0);
+        assert_eq!(get_height(&mut root_child0), 160.0);
+
+        assert_eq!(get_left(&mut root_child0_child0), 50.0);
+        assert_eq!(get_top(&mut root_child0_child0), 0.0);
+        assert_eq!(get_width(&mut root_child0_child0), 150.0);
+        assert_eq!(get_height(&mut root_child0_child0), 80.0);
+
+        assert_eq!(get_left(&mut root_child0_child1), 120.0);
+        assert_eq!(get_top(&mut root_child0_child1), 80.0);
+        assert_eq!(get_width(&mut root_child0_child1), 80.0);
+        assert_eq!(get_height(&mut root_child0_child1), 80.0);
+    }
 
 }
