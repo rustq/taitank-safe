@@ -97,6 +97,48 @@ void set_flex_wrap(std::unique_ptr<TaitankSafeNode> & node, int flex_wrap_node) 
 }
 
 
+void set_align_items(std::unique_ptr<TaitankSafeNode> & node, int flex_align) {
+  switch (flex_align) {
+    case 0: {
+      taitank::SetAlignItems(node->ptr, taitank::FlexAlign::FLEX_ALIGN_AUTO);
+      break;
+    }
+    case 1: {
+      taitank::SetAlignItems(node->ptr, taitank::FlexAlign::FLEX_ALIGN_START);
+      break;
+    }
+    case 2: {
+      taitank::SetAlignItems(node->ptr, taitank::FlexAlign::FLEX_ALIGN_CENTER);
+      break;
+    }
+    case 3: {
+      taitank::SetAlignItems(node->ptr, taitank::FlexAlign::FLEX_ALIGN_END);
+      break;
+    }
+    case 4: {
+      taitank::SetAlignItems(node->ptr, taitank::FlexAlign::FLEX_ALIGN_STRETCH);
+      break;
+    }
+    case 5: {
+      taitank::SetAlignItems(node->ptr, taitank::FlexAlign::FLEX_ALIGN_BASE_LINE);
+      break;
+    }
+    case 6: {
+      taitank::SetAlignItems(node->ptr, taitank::FlexAlign::FLEX_ALIGN_SPACE_BETWEEN);
+      break;
+    }
+    case 7: {
+      taitank::SetAlignItems(node->ptr, taitank::FlexAlign::FLEX_ALIGN_SPACE_AROUND);
+      break;
+    }
+    case 8: {
+      taitank::SetAlignItems(node->ptr, taitank::FlexAlign::FLEX_ALIGN_SPACE_EVENLY);
+      break;
+    }
+  }
+}
+
+
 void insert_child(std::unique_ptr<TaitankSafeNode> & node, std::unique_ptr<TaitankSafeNode> & child, int index) {
   taitank::InsertChild(node->ptr, child->ptr, index);
 }

@@ -30,6 +30,20 @@ pub enum FlexWrapNode {
     FlexWrapReverse = 2,
 }
 
+#[repr(i32)]
+pub enum FlexAlign {
+    FlexAlignAuto = 0,
+    FlexAlignStart = 1,
+    FlexAlignCenter = 2,
+    FlexAlignEnd = 3,
+    FlexAlignStretch = 4,
+    FlexAlignBaseLine = 5,
+    FlexAlignSpaceBetween = 6,
+    FlexAlignSpaceAround = 7,
+    FlexAlignSpaceEvenly = 8,
+}
+
+
 pub fn node_create() -> TaitankSafeNode {
     TaitankSafeNode {
         unique_ptr: ffi::node_create(),
@@ -62,6 +76,10 @@ pub fn set_flex_direction(node: &mut TaitankSafeNode, flex_direction: FlexDirect
 
 pub fn set_flex_wrap(node: &mut TaitankSafeNode, flex_wrap_node: FlexWrapNode) {
     ffi::set_flex_wrap(&mut node.unique_ptr, flex_wrap_node as i32);
+}
+
+pub fn set_align_items(node: &mut TaitankSafeNode, flex_align: FlexAlign) {
+    ffi::set_align_items(&mut node.unique_ptr, flex_align as i32);
 }
 
 pub fn insert_child(node: &mut TaitankSafeNode, child: &mut TaitankSafeNode, index: i32) {
