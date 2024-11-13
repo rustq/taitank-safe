@@ -79,6 +79,24 @@ void set_flex_direction(std::unique_ptr<TaitankSafeNode> & node, int flex_direct
   }
 }
 
+void set_flex_wrap(std::unique_ptr<TaitankSafeNode> & node, int flex_wrap_node) {
+  switch (flex_wrap_node) {
+    case 0: {
+      taitank::SetFlexWrap(node->ptr, taitank::FlexWrapMode::FLEX_NO_WRAP);
+      break;
+    }
+    case 1: {
+      taitank::SetFlexWrap(node->ptr, taitank::FlexWrapMode::FLEX_WRAP);
+      break;
+    }
+    case 2: {
+      taitank::SetFlexWrap(node->ptr, taitank::FlexWrapMode::FLEX_WRAP_REVERSE);
+      break;
+    }
+  }
+}
+
+
 void insert_child(std::unique_ptr<TaitankSafeNode> & node, std::unique_ptr<TaitankSafeNode> & child, int index) {
   taitank::InsertChild(node->ptr, child->ptr, index);
 }

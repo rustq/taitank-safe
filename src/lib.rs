@@ -8,12 +8,6 @@ pub struct TaitankSafeNode {
     unique_ptr: UniquePtr<ffi::TaitankSafeNode>,
 }
 
-// impl Drop for TaitankSafeNode {
-//     fn drop(&mut self) {
-//         ffi::
-//     }
-// }
-
 #[repr(i32)]
 pub enum Direction {
     Inherit = 0,
@@ -27,6 +21,13 @@ pub enum FlexDirection {
     FlexDirectionRowReverse = 1,
     FlexDirectionColumn = 2,
     FlexDirectionColumnReverse = 3,
+}
+
+#[repr(i32)]
+pub enum FlexWrapNode {
+    FlexNoWrap = 0,
+    FlexWrap = 1,
+    FlexWrapReverse = 2,
 }
 
 pub fn node_create() -> TaitankSafeNode {
@@ -58,6 +59,11 @@ pub fn set_flex_basis(node: &mut TaitankSafeNode, flex_basis: f64) {
 pub fn set_flex_direction(node: &mut TaitankSafeNode, flex_direction: FlexDirection) {
     ffi::set_flex_direction(&mut node.unique_ptr, flex_direction as i32);
 }
+
+pub fn set_flex_wrap(node: &mut TaitankSafeNode, flex_wrap_node: FlexWrapNode) {
+    ffi::set_flex_wrap(&mut node.unique_ptr, flex_wrap_node as i32);
+}
+
 pub fn insert_child(node: &mut TaitankSafeNode, child: &mut TaitankSafeNode, index: i32) {
     ffi::insert_child(&mut node.unique_ptr, &mut child.unique_ptr, index);
 }

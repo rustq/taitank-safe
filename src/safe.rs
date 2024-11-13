@@ -14,6 +14,7 @@ pub mod ffi {
         fn set_flex_shrink(node: &mut UniquePtr<TaitankSafeNode>, flex_shrink: f64);
         fn set_flex_basis(node: &mut UniquePtr<TaitankSafeNode>, flex_basis: f64);
         fn set_flex_direction(node: &mut UniquePtr<TaitankSafeNode>, flex_direction: i32);
+        fn set_flex_wrap(node: &mut UniquePtr<TaitankSafeNode>, flex_wrap_node: i32);
         fn insert_child(
             node: &mut UniquePtr<TaitankSafeNode>,
             child: &mut UniquePtr<TaitankSafeNode>,
