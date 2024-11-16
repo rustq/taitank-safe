@@ -32,3 +32,4 @@ double get_width(std::unique_ptr<TaitankSafeNode> & node);
 double get_height(std::unique_ptr<TaitankSafeNode> & node);
 double get_left(std::unique_ptr<TaitankSafeNode> & node);
 double get_top(std::unique_ptr<TaitankSafeNode> & node);
+void print(std::unique_ptr<TaitankSafeNode> const & node);

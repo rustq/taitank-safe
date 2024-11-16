@@ -36,5 +36,6 @@ pub mod ffi {
         fn get_height(node: &mut UniquePtr<TaitankSafeNode>) -> f64;
         fn get_left(node: &mut UniquePtr<TaitankSafeNode>) -> f64;
         fn get_top(node: &mut UniquePtr<TaitankSafeNode>) -> f64;
+        fn print(node: &UniquePtr<TaitankSafeNode>);
     }
 }

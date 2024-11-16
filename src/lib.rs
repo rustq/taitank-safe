@@ -3,9 +3,16 @@ mod safe;
 
 use cxx::UniquePtr;
 use safe::ffi;
+use std::fmt::{Debug, Formatter, Result};
 
 pub struct TaitankSafeNode {
     unique_ptr: UniquePtr<ffi::TaitankSafeNode>,
+}
+
+impl Debug for TaitankSafeNode {
+    fn fmt(&self, f: &mut Formatter) -> Result {
+        Ok(ffi::print(&self.unique_ptr))
+    }
 }
 
 #[repr(i32)]

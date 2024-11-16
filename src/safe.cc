@@ -310,48 +310,7 @@ double get_left(std::unique_ptr<TaitankSafeNode> & node) {
 double get_top(std::unique_ptr<TaitankSafeNode> & node) {
   return taitank::GetTop(node->ptr);
 }
-//
-//void TaitankSafeNode::set_width(double width) const {
-//  taitank::SetWidth(ptr, width);
-//}
-//
-//void TaitankSafeNode::set_height(double height) const {
-//  taitank::SetHeight(ptr, height);
-//}
-//
-//void TaitankSafeNode::set_direction(int direction) const {
-//  switch (direction) {
-//    case 0: {
-//      taitank::SetDirection(ptr, taitank::TaitankDirection::DIRECTION_INHERIT);
-//      break;
-//    }
-//    case 1: {
-//      taitank::SetDirection(ptr, taitank::TaitankDirection::DIRECTION_LTR);
-//      break;
-//    }
-//    case 2: {
-//      taitank::SetDirection(ptr, taitank::TaitankDirection::DIRECTION_RTL);
-//      break;
-//    }
-//  }
-//}
-//
-//void TaitankSafeNode::do_layout(double parent_width, double parent_height) const {
-//  taitank::DoLayout(ptr, parent_width, parent_height);
-//}
-//
-//double TaitankSafeNode::get_left() const {
-//  return taitank::GetLeft(ptr);
-//}
-//
-//double TaitankSafeNode::get_top() const {
-//  return taitank::GetTop(ptr);
-//}
-//
-//double TaitankSafeNode::get_width() const {
-//  return taitank::GetWidth(ptr);
-//}
-//
-//double TaitankSafeNode::get_height() const {
-//  return taitank::GetHeight(ptr);
-//}
+
+void print(std::unique_ptr<TaitankSafeNode> const & node) {
+  return taitank::Print(node->ptr);
+}
