@@ -69,6 +69,14 @@ pub enum CSSDirection {
 }
 
 
+/// Create and get a TaitankSafeNode.
+///
+/// # Examples
+///
+/// ```
+/// let root = taitank_safe::node_create();
+/// println!("{:?}", root);
+/// ```
 pub fn node_create() -> TaitankSafeNode {
     TaitankSafeNode {
         unique_ptr: ffi::node_create(),
@@ -130,6 +138,16 @@ pub fn set_justify_content(node: &mut TaitankSafeNode, flex_align: FlexAlign) {
 pub fn insert_child(node: &mut TaitankSafeNode, child: &mut TaitankSafeNode, index: i32) {
     ffi::insert_child(&mut node.unique_ptr, &mut child.unique_ptr, index);
 }
+
+/// Layout the node.
+///
+/// # Examples
+///
+/// ```
+/// let mut root = taitank_safe::node_create();
+/// taitank_safe::set_width(&mut root);
+/// taitank_safe::do_layout(&mut root, std::f64::NAN, std::f64::NAN, taitank_safe::Direction::LTR);
+/// ```
 pub fn do_layout(
     node: &mut TaitankSafeNode,
     parent_width: f64,
