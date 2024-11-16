@@ -1314,7 +1314,7 @@ mod tests {
         let mut root = node_create();
         set_justify_content(&mut root, FlexAlign::FlexAlignCenter);
         set_align_content(&mut root, FlexAlign::FlexAlignCenter);
-        set_align_items(&mut root, FlexAlign::FlexAlignStretch);
+        set_align_items(&mut root, FlexAlign::FlexAlignCenter);
         set_flex_wrap(&mut root, FlexWrapNode::FlexWrap);
         set_width(&mut root, 700.0);
         set_height(&mut root, 500.0);
@@ -1346,7 +1346,7 @@ mod tests {
         assert_eq!(get_width(&mut root), 700.0);
         assert_eq!(get_height(&mut root), 500.0);
 
-        // assert_eq!(get_left(&mut root_child0), 250.0);
+        assert_eq!(get_left(&mut root_child0), 250.0);
         assert_eq!(get_top(&mut root_child0), 30.0);
         assert_eq!(get_width(&mut root_child0), 100.0);
         assert_eq!(get_height(&mut root_child0), 200.0);
@@ -1368,7 +1368,7 @@ mod tests {
         assert_eq!(get_width(&mut root), 700.0);
         assert_eq!(get_height(&mut root), 500.0);
 
-        // assert_eq!(get_left(&mut root_child0), 350.0);
+        assert_eq!(get_left(&mut root_child0), 350.0);
         assert_eq!(get_top(&mut root_child0), 30.0);
         assert_eq!(get_width(&mut root_child0), 100.0);
         assert_eq!(get_height(&mut root_child0), 200.0);
