@@ -145,7 +145,7 @@ pub fn insert_child(node: &mut TaitankSafeNode, child: &mut TaitankSafeNode, ind
 ///
 /// ```
 /// let mut root = taitank_safe::node_create();
-/// taitank_safe::set_width(&mut root);
+/// taitank_safe::set_width(&mut root, 200.0);
 /// taitank_safe::do_layout(&mut root, std::f64::NAN, std::f64::NAN, taitank_safe::Direction::LTR);
 /// ```
 pub fn do_layout(

@@ -5,7 +5,7 @@
 ///
 /// ```
 /// let mut root = taitank_safe::node_create();
-/// taitank_safe::set_width(&mut root);
+/// taitank_safe::set_width(&mut root, 200.0);
 /// taitank_safe::layout!(&mut root);
 /// ```
 #[macro_export]
