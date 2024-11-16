@@ -15,6 +15,10 @@ impl Debug for TaitankSafeNode {
     }
 }
 
+unsafe impl Send for TaitankSafeNode {}
+unsafe impl Sync for TaitankSafeNode {}
+
+
 #[repr(i32)]
 pub enum Direction {
     Inherit = 0,
