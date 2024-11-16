@@ -139,15 +139,15 @@ pub fn do_layout(
         direction as i32,
     );
 }
-pub fn get_width(node: &mut TaitankSafeNode) -> f64 {
-    ffi::get_width(&mut node.unique_ptr)
+pub fn get_width(node: &TaitankSafeNode) -> f64 {
+    ffi::get_width(&node.unique_ptr)
 }
-pub fn get_height(node: &mut TaitankSafeNode) -> f64 {
-    ffi::get_height(&mut node.unique_ptr)
+pub fn get_height(node: &TaitankSafeNode) -> f64 {
+    ffi::get_height(&node.unique_ptr)
 }
-pub fn get_left(node: &mut TaitankSafeNode) -> f64 {
-    ffi::get_left(&mut node.unique_ptr)
+pub fn get_left(node: &TaitankSafeNode) -> f64 {
+    ffi::get_left(&node.unique_ptr)
 }
-pub fn get_top(node: &mut TaitankSafeNode) -> f64 {
-    ffi::get_top(&mut node.unique_ptr)
+pub fn get_top(node: &TaitankSafeNode) -> f64 {
+    ffi::get_top(&node.unique_ptr)
 }

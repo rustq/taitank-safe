@@ -295,19 +295,19 @@ void set_justify_content(std::unique_ptr<TaitankSafeNode> & node, int justify) {
   }
 }
 
-double get_width(std::unique_ptr<TaitankSafeNode> & node) {
+double get_width(std::unique_ptr<TaitankSafeNode> const & node) {
   return taitank::GetWidth(node->ptr);
 }
 
-double get_height(std::unique_ptr<TaitankSafeNode> & node) {
+double get_height(std::unique_ptr<TaitankSafeNode> const & node) {
   return taitank::GetHeight(node->ptr);
 }
 
-double get_left(std::unique_ptr<TaitankSafeNode> & node) {
+double get_left(std::unique_ptr<TaitankSafeNode> const & node) {
   return taitank::GetLeft(node->ptr);
 }
 
-double get_top(std::unique_ptr<TaitankSafeNode> & node) {
+double get_top(std::unique_ptr<TaitankSafeNode> const & node) {
   return taitank::GetTop(node->ptr);
 }
 

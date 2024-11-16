@@ -18,37 +18,37 @@ mod tests {
         insert_child(&mut root, &mut root_child1, 1);
         do_layout(&mut root, std::f64::NAN, std::f64::NAN, Direction::LTR);
 
-        assert_eq!(0.0, get_left(&mut root));
-        assert_eq!(0.0, get_top(&mut root));
-        assert_eq!(100.0, get_width(&mut root));
-        assert_eq!(100.0, get_height(&mut root));
+        assert_eq!(0.0, get_left(&root));
+        assert_eq!(0.0, get_top(&root));
+        assert_eq!(100.0, get_width(&root));
+        assert_eq!(100.0, get_height(&root));
 
-        assert_eq!(0.0, get_left(&mut root_child0));
-        assert_eq!(0.0, get_top(&mut root_child0));
-        assert_eq!(100.0, get_width(&mut root_child0));
-        assert_eq!(75.0, get_height(&mut root_child0));
+        assert_eq!(0.0, get_left(&root_child0));
+        assert_eq!(0.0, get_top(&root_child0));
+        assert_eq!(100.0, get_width(&root_child0));
+        assert_eq!(75.0, get_height(&root_child0));
 
-        assert_eq!(0.0, get_left(&mut root_child1));
-        assert_eq!(75.0, get_top(&mut root_child1));
-        assert_eq!(100.0, get_width(&mut root_child1));
-        assert_eq!(25.0, get_height(&mut root_child1));
+        assert_eq!(0.0, get_left(&root_child1));
+        assert_eq!(75.0, get_top(&root_child1));
+        assert_eq!(100.0, get_width(&root_child1));
+        assert_eq!(25.0, get_height(&root_child1));
 
         layout!(&mut root);
 
-        assert_eq!(0.0, get_left(&mut root));
-        assert_eq!(0.0, get_top(&mut root));
-        assert_eq!(100.0, get_width(&mut root));
-        assert_eq!(100.0, get_height(&mut root));
+        assert_eq!(0.0, get_left(&root));
+        assert_eq!(0.0, get_top(&root));
+        assert_eq!(100.0, get_width(&root));
+        assert_eq!(100.0, get_height(&root));
 
-        assert_eq!(0.0, get_left(&mut root_child0));
-        assert_eq!(0.0, get_top(&mut root_child0));
-        assert_eq!(100.0, get_width(&mut root_child0));
-        assert_eq!(75.0, get_height(&mut root_child0));
+        assert_eq!(0.0, get_left(&root_child0));
+        assert_eq!(0.0, get_top(&root_child0));
+        assert_eq!(100.0, get_width(&root_child0));
+        assert_eq!(75.0, get_height(&root_child0));
 
-        assert_eq!(0.0, get_left(&mut root_child1));
-        assert_eq!(75.0, get_top(&mut root_child1));
-        assert_eq!(100.0, get_width(&mut root_child1));
-        assert_eq!(25.0, get_height(&mut root_child1));
+        assert_eq!(0.0, get_left(&root_child1));
+        assert_eq!(75.0, get_top(&root_child1));
+        assert_eq!(100.0, get_width(&root_child1));
+        assert_eq!(25.0, get_height(&root_child1));
     }
 
     #[test]
@@ -67,37 +67,37 @@ mod tests {
         insert_child(&mut root, &mut root_child1, 1);
         layout!(&mut root);
 
-        assert_eq!(0.0, get_left(&mut root));
-        assert_eq!(0.0, get_top(&mut root));
-        assert_eq!(100.0, get_width(&mut root));
-        assert_eq!(100.0, get_height(&mut root));
+        assert_eq!(0.0, get_left(&root));
+        assert_eq!(0.0, get_top(&root));
+        assert_eq!(100.0, get_width(&root));
+        assert_eq!(100.0, get_height(&root));
 
-        assert_eq!(0.0, get_left(&mut root_child0));
-        assert_eq!(0.0, get_top(&mut root_child0));
-        assert_eq!(75.0, get_width(&mut root_child0));
-        assert_eq!(100.0, get_height(&mut root_child0));
+        assert_eq!(0.0, get_left(&root_child0));
+        assert_eq!(0.0, get_top(&root_child0));
+        assert_eq!(75.0, get_width(&root_child0));
+        assert_eq!(100.0, get_height(&root_child0));
 
-        assert_eq!(75.0, get_left(&mut root_child1));
-        assert_eq!(0.0, get_top(&mut root_child1));
-        assert_eq!(25.0, get_width(&mut root_child1));
-        assert_eq!(100.0, get_height(&mut root_child1));
+        assert_eq!(75.0, get_left(&root_child1));
+        assert_eq!(0.0, get_top(&root_child1));
+        assert_eq!(25.0, get_width(&root_child1));
+        assert_eq!(100.0, get_height(&root_child1));
 
         do_layout(&mut root, std::f64::NAN, std::f64::NAN, Direction::RTL);
 
-        assert_eq!(0.0, get_left(&mut root));
-        assert_eq!(0.0, get_top(&mut root));
-        assert_eq!(100.0, get_width(&mut root));
-        assert_eq!(100.0, get_height(&mut root));
+        assert_eq!(0.0, get_left(&root));
+        assert_eq!(0.0, get_top(&root));
+        assert_eq!(100.0, get_width(&root));
+        assert_eq!(100.0, get_height(&root));
 
-        assert_eq!(25.0, get_left(&mut root_child0));
-        assert_eq!(0.0, get_top(&mut root_child0));
-        assert_eq!(75.0, get_width(&mut root_child0));
-        assert_eq!(100.0, get_height(&mut root_child0));
+        assert_eq!(25.0, get_left(&root_child0));
+        assert_eq!(0.0, get_top(&root_child0));
+        assert_eq!(75.0, get_width(&root_child0));
+        assert_eq!(100.0, get_height(&root_child0));
 
-        assert_eq!(0.0, get_left(&mut root_child1));
-        assert_eq!(0.0, get_top(&mut root_child1));
-        assert_eq!(25.0, get_width(&mut root_child1));
-        assert_eq!(100.0, get_height(&mut root_child1));
+        assert_eq!(0.0, get_left(&root_child1));
+        assert_eq!(0.0, get_top(&root_child1));
+        assert_eq!(25.0, get_width(&root_child1));
+        assert_eq!(100.0, get_height(&root_child1));
     }
 
     #[test]
@@ -117,37 +117,37 @@ mod tests {
 
         layout!(&mut root);
 
-        assert_eq!(0.0, get_left(&mut root));
-        assert_eq!(0.0, get_top(&mut root));
-        assert_eq!(100.0, get_width(&mut root));
-        assert_eq!(100.0, get_height(&mut root));
+        assert_eq!(0.0, get_left(&root));
+        assert_eq!(0.0, get_top(&root));
+        assert_eq!(100.0, get_width(&root));
+        assert_eq!(100.0, get_height(&root));
 
-        assert_eq!(0.0, get_left(&mut root_child0));
-        assert_eq!(0.0, get_top(&mut root_child0));
-        assert_eq!(100.0, get_width(&mut root_child0));
-        assert_eq!(50.0, get_height(&mut root_child0));
+        assert_eq!(0.0, get_left(&root_child0));
+        assert_eq!(0.0, get_top(&root_child0));
+        assert_eq!(100.0, get_width(&root_child0));
+        assert_eq!(50.0, get_height(&root_child0));
 
-        assert_eq!(0.0, get_left(&mut root_child1));
-        assert_eq!(50.0, get_top(&mut root_child1));
-        assert_eq!(100.0, get_width(&mut root_child1));
-        assert_eq!(50.0, get_height(&mut root_child1));
+        assert_eq!(0.0, get_left(&root_child1));
+        assert_eq!(50.0, get_top(&root_child1));
+        assert_eq!(100.0, get_width(&root_child1));
+        assert_eq!(50.0, get_height(&root_child1));
 
         do_layout(&mut root, std::f64::NAN, std::f64::NAN, Direction::RTL);
 
-        assert_eq!(0.0, get_left(&mut root));
-        assert_eq!(0.0, get_top(&mut root));
-        assert_eq!(100.0, get_width(&mut root));
-        assert_eq!(100.0, get_height(&mut root));
+        assert_eq!(0.0, get_left(&root));
+        assert_eq!(0.0, get_top(&root));
+        assert_eq!(100.0, get_width(&root));
+        assert_eq!(100.0, get_height(&root));
 
-        assert_eq!(0.0, get_left(&mut root_child0));
-        assert_eq!(0.0, get_top(&mut root_child0));
-        assert_eq!(100.0, get_width(&mut root_child0));
-        assert_eq!(50.0, get_height(&mut root_child0));
+        assert_eq!(0.0, get_left(&root_child0));
+        assert_eq!(0.0, get_top(&root_child0));
+        assert_eq!(100.0, get_width(&root_child0));
+        assert_eq!(50.0, get_height(&root_child0));
 
-        assert_eq!(0.0, get_left(&mut root_child1));
-        assert_eq!(50.0, get_top(&mut root_child1));
-        assert_eq!(100.0, get_width(&mut root_child1));
-        assert_eq!(50.0, get_height(&mut root_child1));
+        assert_eq!(0.0, get_left(&root_child1));
+        assert_eq!(50.0, get_top(&root_child1));
+        assert_eq!(100.0, get_width(&root_child1));
+        assert_eq!(50.0, get_height(&root_child1));
     }
 
     #[test]
@@ -168,37 +168,37 @@ mod tests {
 
         layout!(&mut root);
 
-        assert_eq!(0.0, get_left(&mut root));
-        assert_eq!(0.0, get_top(&mut root));
-        assert_eq!(100.0, get_width(&mut root));
-        assert_eq!(100.0, get_height(&mut root));
+        assert_eq!(0.0, get_left(&root));
+        assert_eq!(0.0, get_top(&root));
+        assert_eq!(100.0, get_width(&root));
+        assert_eq!(100.0, get_height(&root));
 
-        assert_eq!(0.0, get_left(&mut root_child0));
-        assert_eq!(0.0, get_top(&mut root_child0));
-        assert_eq!(50.0, get_width(&mut root_child0));
-        assert_eq!(100.0, get_height(&mut root_child0));
+        assert_eq!(0.0, get_left(&root_child0));
+        assert_eq!(0.0, get_top(&root_child0));
+        assert_eq!(50.0, get_width(&root_child0));
+        assert_eq!(100.0, get_height(&root_child0));
 
-        assert_eq!(50.0, get_left(&mut root_child1));
-        assert_eq!(0.0, get_top(&mut root_child1));
-        assert_eq!(50.0, get_width(&mut root_child1));
-        assert_eq!(100.0, get_height(&mut root_child1));
+        assert_eq!(50.0, get_left(&root_child1));
+        assert_eq!(0.0, get_top(&root_child1));
+        assert_eq!(50.0, get_width(&root_child1));
+        assert_eq!(100.0, get_height(&root_child1));
 
         do_layout(&mut root, std::f64::NAN, std::f64::NAN, Direction::RTL);
 
-        assert_eq!(0.0, get_left(&mut root));
-        assert_eq!(0.0, get_top(&mut root));
-        assert_eq!(100.0, get_width(&mut root));
-        assert_eq!(100.0, get_height(&mut root));
+        assert_eq!(0.0, get_left(&root));
+        assert_eq!(0.0, get_top(&root));
+        assert_eq!(100.0, get_width(&root));
+        assert_eq!(100.0, get_height(&root));
 
-        assert_eq!(50.0, get_left(&mut root_child0));
-        assert_eq!(0.0, get_top(&mut root_child0));
-        assert_eq!(50.0, get_width(&mut root_child0));
-        assert_eq!(100.0, get_height(&mut root_child0));
+        assert_eq!(50.0, get_left(&root_child0));
+        assert_eq!(0.0, get_top(&root_child0));
+        assert_eq!(50.0, get_width(&root_child0));
+        assert_eq!(100.0, get_height(&root_child0));
 
-        assert_eq!(0.0, get_left(&mut root_child1));
-        assert_eq!(0.0, get_top(&mut root_child1));
-        assert_eq!(50.0, get_width(&mut root_child1));
-        assert_eq!(100.0, get_height(&mut root_child1));
+        assert_eq!(0.0, get_left(&root_child1));
+        assert_eq!(0.0, get_top(&root_child1));
+        assert_eq!(50.0, get_width(&root_child1));
+        assert_eq!(100.0, get_height(&root_child1));
     }
 
     #[test]
@@ -224,47 +224,47 @@ mod tests {
 
         layout!(&mut root);
 
-        assert_eq!(0.0, get_left(&mut root));
-        assert_eq!(0.0, get_top(&mut root));
-        assert_eq!(50.0, get_width(&mut root));
-        assert_eq!(75.0, get_height(&mut root));
+        assert_eq!(0.0, get_left(&root));
+        assert_eq!(0.0, get_top(&root));
+        assert_eq!(50.0, get_width(&root));
+        assert_eq!(75.0, get_height(&root));
 
-        assert_eq!(0.0, get_left(&mut root_child0));
-        assert_eq!(0.0, get_top(&mut root_child0));
-        assert_eq!(50.0, get_width(&mut root_child0));
-        assert_eq!(50.0, get_height(&mut root_child0));
+        assert_eq!(0.0, get_left(&root_child0));
+        assert_eq!(0.0, get_top(&root_child0));
+        assert_eq!(50.0, get_width(&root_child0));
+        assert_eq!(50.0, get_height(&root_child0));
 
-        assert_eq!(0.0, get_left(&mut root_child1));
-        assert_eq!(50.0, get_top(&mut root_child1));
-        assert_eq!(50.0, get_width(&mut root_child1));
-        assert_eq!(0.0, get_height(&mut root_child1));
+        assert_eq!(0.0, get_left(&root_child1));
+        assert_eq!(50.0, get_top(&root_child1));
+        assert_eq!(50.0, get_width(&root_child1));
+        assert_eq!(0.0, get_height(&root_child1));
 
-        assert_eq!(0.0, get_left(&mut root_child2));
-        assert_eq!(50.0, get_top(&mut root_child2));
-        assert_eq!(50.0, get_width(&mut root_child2));
-        assert_eq!(50.0, get_height(&mut root_child2));
+        assert_eq!(0.0, get_left(&root_child2));
+        assert_eq!(50.0, get_top(&root_child2));
+        assert_eq!(50.0, get_width(&root_child2));
+        assert_eq!(50.0, get_height(&root_child2));
 
         do_layout(&mut root, std::f64::NAN, std::f64::NAN, Direction::RTL);
 
-        assert_eq!(0.0, get_left(&mut root));
-        assert_eq!(0.0, get_top(&mut root));
-        assert_eq!(50.0, get_width(&mut root));
-        assert_eq!(75.0, get_height(&mut root));
+        assert_eq!(0.0, get_left(&root));
+        assert_eq!(0.0, get_top(&root));
+        assert_eq!(50.0, get_width(&root));
+        assert_eq!(75.0, get_height(&root));
 
-        assert_eq!(0.0, get_left(&mut root_child0));
-        assert_eq!(0.0, get_top(&mut root_child0));
-        assert_eq!(50.0, get_width(&mut root_child0));
-        assert_eq!(50.0, get_height(&mut root_child0));
+        assert_eq!(0.0, get_left(&root_child0));
+        assert_eq!(0.0, get_top(&root_child0));
+        assert_eq!(50.0, get_width(&root_child0));
+        assert_eq!(50.0, get_height(&root_child0));
 
-        assert_eq!(0.0, get_left(&mut root_child1));
-        assert_eq!(50.0, get_top(&mut root_child1));
-        assert_eq!(50.0, get_width(&mut root_child1));
-        assert_eq!(0.0, get_height(&mut root_child1));
+        assert_eq!(0.0, get_left(&root_child1));
+        assert_eq!(50.0, get_top(&root_child1));
+        assert_eq!(50.0, get_width(&root_child1));
+        assert_eq!(0.0, get_height(&root_child1));
 
-        assert_eq!(0.0, get_left(&mut root_child2));
-        assert_eq!(50.0, get_top(&mut root_child2));
-        assert_eq!(50.0, get_width(&mut root_child2));
-        assert_eq!(50.0, get_height(&mut root_child2));
+        assert_eq!(0.0, get_left(&root_child2));
+        assert_eq!(50.0, get_top(&root_child2));
+        assert_eq!(50.0, get_width(&root_child2));
+        assert_eq!(50.0, get_height(&root_child2));
     }
 
     #[test]
@@ -291,47 +291,47 @@ mod tests {
 
         layout!(&mut root);
 
-        assert_eq!(0.0, get_left(&mut root));
-        assert_eq!(0.0, get_top(&mut root));
-        assert_eq!(100.0, get_width(&mut root));
-        assert_eq!(100.0, get_height(&mut root));
+        assert_eq!(0.0, get_left(&root));
+        assert_eq!(0.0, get_top(&root));
+        assert_eq!(100.0, get_width(&root));
+        assert_eq!(100.0, get_height(&root));
 
-        assert_eq!(0.0, get_left(&mut root_child0));
-        assert_eq!(0.0, get_top(&mut root_child0));
-        assert_eq!(100.0, get_width(&mut root_child0));
-        assert_eq!(60.0, get_height(&mut root_child0));
+        assert_eq!(0.0, get_left(&root_child0));
+        assert_eq!(0.0, get_top(&root_child0));
+        assert_eq!(100.0, get_width(&root_child0));
+        assert_eq!(60.0, get_height(&root_child0));
 
-        assert_eq!(0.0, get_left(&mut root_child1));
-        assert_eq!(60.0, get_top(&mut root_child1));
-        assert_eq!(100.0, get_width(&mut root_child1));
-        assert_eq!(20.0, get_height(&mut root_child1));
+        assert_eq!(0.0, get_left(&root_child1));
+        assert_eq!(60.0, get_top(&root_child1));
+        assert_eq!(100.0, get_width(&root_child1));
+        assert_eq!(20.0, get_height(&root_child1));
 
-        assert_eq!(0.0, get_left(&mut root_child2));
-        assert_eq!(80.0, get_top(&mut root_child2));
-        assert_eq!(100.0, get_width(&mut root_child2));
-        assert_eq!(20.0, get_height(&mut root_child2));
+        assert_eq!(0.0, get_left(&root_child2));
+        assert_eq!(80.0, get_top(&root_child2));
+        assert_eq!(100.0, get_width(&root_child2));
+        assert_eq!(20.0, get_height(&root_child2));
 
         do_layout(&mut root, std::f64::NAN, std::f64::NAN, Direction::RTL);
 
-        assert_eq!(0.0, get_left(&mut root));
-        assert_eq!(0.0, get_top(&mut root));
-        assert_eq!(100.0, get_width(&mut root));
-        assert_eq!(100.0, get_height(&mut root));
+        assert_eq!(0.0, get_left(&root));
+        assert_eq!(0.0, get_top(&root));
+        assert_eq!(100.0, get_width(&root));
+        assert_eq!(100.0, get_height(&root));
 
-        assert_eq!(0.0, get_left(&mut root_child0));
-        assert_eq!(0.0, get_top(&mut root_child0));
-        assert_eq!(100.0, get_width(&mut root_child0));
-        assert_eq!(60.0, get_height(&mut root_child0));
+        assert_eq!(0.0, get_left(&root_child0));
+        assert_eq!(0.0, get_top(&root_child0));
+        assert_eq!(100.0, get_width(&root_child0));
+        assert_eq!(60.0, get_height(&root_child0));
 
-        assert_eq!(0.0, get_left(&mut root_child1));
-        assert_eq!(60.0, get_top(&mut root_child1));
-        assert_eq!(100.0, get_width(&mut root_child1));
-        assert_eq!(20.0, get_height(&mut root_child1));
+        assert_eq!(0.0, get_left(&root_child1));
+        assert_eq!(60.0, get_top(&root_child1));
+        assert_eq!(100.0, get_width(&root_child1));
+        assert_eq!(20.0, get_height(&root_child1));
 
-        assert_eq!(0.0, get_left(&mut root_child2));
-        assert_eq!(80.0, get_top(&mut root_child2));
-        assert_eq!(100.0, get_width(&mut root_child2));
-        assert_eq!(20.0, get_height(&mut root_child2));
+        assert_eq!(0.0, get_left(&root_child2));
+        assert_eq!(80.0, get_top(&root_child2));
+        assert_eq!(100.0, get_width(&root_child2));
+        assert_eq!(20.0, get_height(&root_child2));
     }
 
     #[test]
@@ -350,37 +350,37 @@ mod tests {
 
         layout!(&mut root);
 
-        assert_eq!(0.0, get_left(&mut root));
-        assert_eq!(0.0, get_top(&mut root));
-        assert_eq!(100.0, get_width(&mut root));
-        assert_eq!(100.0, get_height(&mut root));
+        assert_eq!(0.0, get_left(&root));
+        assert_eq!(0.0, get_top(&root));
+        assert_eq!(100.0, get_width(&root));
+        assert_eq!(100.0, get_height(&root));
 
-        assert_eq!(0.0, get_left(&mut root_child0));
-        assert_eq!(0.0, get_top(&mut root_child0));
-        assert_eq!(100.0, get_width(&mut root_child0));
-        assert_eq!(0.0, get_height(&mut root_child0));
+        assert_eq!(0.0, get_left(&root_child0));
+        assert_eq!(0.0, get_top(&root_child0));
+        assert_eq!(100.0, get_width(&root_child0));
+        assert_eq!(0.0, get_height(&root_child0));
 
-        assert_eq!(0.0, get_left(&mut root_child0_child0));
-        assert_eq!(0.0, get_top(&mut root_child0_child0));
-        assert_eq!(100.0, get_width(&mut root_child0_child0));
-        assert_eq!(0.0, get_height(&mut root_child0_child0));
+        assert_eq!(0.0, get_left(&root_child0_child0));
+        assert_eq!(0.0, get_top(&root_child0_child0));
+        assert_eq!(100.0, get_width(&root_child0_child0));
+        assert_eq!(0.0, get_height(&root_child0_child0));
 
         do_layout(&mut root, std::f64::NAN, std::f64::NAN, Direction::RTL);
 
-        assert_eq!(0.0, get_left(&mut root));
-        assert_eq!(0.0, get_top(&mut root));
-        assert_eq!(100.0, get_width(&mut root));
-        assert_eq!(100.0, get_height(&mut root));
+        assert_eq!(0.0, get_left(&root));
+        assert_eq!(0.0, get_top(&root));
+        assert_eq!(100.0, get_width(&root));
+        assert_eq!(100.0, get_height(&root));
 
-        assert_eq!(0.0, get_left(&mut root_child0));
-        assert_eq!(0.0, get_top(&mut root_child0));
-        assert_eq!(100.0, get_width(&mut root_child0));
-        assert_eq!(0.0, get_height(&mut root_child0));
+        assert_eq!(0.0, get_left(&root_child0));
+        assert_eq!(0.0, get_top(&root_child0));
+        assert_eq!(100.0, get_width(&root_child0));
+        assert_eq!(0.0, get_height(&root_child0));
 
-        assert_eq!(0.0, get_left(&mut root_child0_child0));
-        assert_eq!(0.0, get_top(&mut root_child0_child0));
-        assert_eq!(100.0, get_width(&mut root_child0_child0));
-        assert_eq!(0.0, get_height(&mut root_child0_child0));
+        assert_eq!(0.0, get_left(&root_child0_child0));
+        assert_eq!(0.0, get_top(&root_child0_child0));
+        assert_eq!(100.0, get_width(&root_child0_child0));
+        assert_eq!(0.0, get_height(&root_child0_child0));
     }
 
     #[test]
@@ -404,46 +404,46 @@ mod tests {
 
         layout!(&mut root);
 
-        assert_eq!(0.0, get_left(&mut root));
-        assert_eq!(0.0, get_top(&mut root));
-        assert_eq!(200.0, get_width(&mut root));
-        assert_eq!(500.0, get_height(&mut root));
+        assert_eq!(0.0, get_left(&root));
+        assert_eq!(0.0, get_top(&root));
+        assert_eq!(200.0, get_width(&root));
+        assert_eq!(500.0, get_height(&root));
 
-        assert_eq!(0.0, get_left(&mut root_child0));
-        assert_eq!(0.0, get_top(&mut root_child0));
-        assert_eq!(200.0, get_width(&mut root_child0));
-        assert_eq!(132.0, get_height(&mut root_child0));
+        assert_eq!(0.0, get_left(&root_child0));
+        assert_eq!(0.0, get_top(&root_child0));
+        assert_eq!(200.0, get_width(&root_child0));
+        assert_eq!(132.0, get_height(&root_child0));
 
-        assert_eq!(0.0, get_left(&mut root_child1));
-        assert_eq!(132.0, get_top(&mut root_child1));
-        assert_eq!(200.0, get_width(&mut root_child1));
-        assert_eq!(92.0, get_height(&mut root_child1));
+        assert_eq!(0.0, get_left(&root_child1));
+        assert_eq!(132.0, get_top(&root_child1));
+        assert_eq!(200.0, get_width(&root_child1));
+        assert_eq!(92.0, get_height(&root_child1));
 
-        assert_eq!(0.0, get_left(&mut root_child2));
-        assert_eq!(224.0, get_top(&mut root_child2));
-        assert_eq!(200.0, get_width(&mut root_child2));
-        assert_eq!(184.0, get_height(&mut root_child2));
+        assert_eq!(0.0, get_left(&root_child2));
+        assert_eq!(224.0, get_top(&root_child2));
+        assert_eq!(200.0, get_width(&root_child2));
+        assert_eq!(184.0, get_height(&root_child2));
 
         do_layout(&mut root, std::f64::NAN, std::f64::NAN, Direction::RTL);
 
-        assert_eq!(0.0, get_left(&mut root));
-        assert_eq!(0.0, get_top(&mut root));
-        assert_eq!(200.0, get_width(&mut root));
-        assert_eq!(500.0, get_height(&mut root));
+        assert_eq!(0.0, get_left(&root));
+        assert_eq!(0.0, get_top(&root));
+        assert_eq!(200.0, get_width(&root));
+        assert_eq!(500.0, get_height(&root));
 
-        assert_eq!(0.0, get_left(&mut root_child0));
-        assert_eq!(0.0, get_top(&mut root_child0));
-        assert_eq!(200.0, get_width(&mut root_child0));
-        assert_eq!(132.0, get_height(&mut root_child0));
+        assert_eq!(0.0, get_left(&root_child0));
+        assert_eq!(0.0, get_top(&root_child0));
+        assert_eq!(200.0, get_width(&root_child0));
+        assert_eq!(132.0, get_height(&root_child0));
 
-        assert_eq!(0.0, get_left(&mut root_child1));
-        assert_eq!(132.0, get_top(&mut root_child1));
-        assert_eq!(200.0, get_width(&mut root_child1));
-        assert_eq!(92.0, get_height(&mut root_child1));
+        assert_eq!(0.0, get_left(&root_child1));
+        assert_eq!(132.0, get_top(&root_child1));
+        assert_eq!(200.0, get_width(&root_child1));
+        assert_eq!(92.0, get_height(&root_child1));
 
-        assert_eq!(0.0, get_left(&mut root_child2));
-        assert_eq!(224.0, get_top(&mut root_child2));
-        assert_eq!(200.0, get_width(&mut root_child2));
-        assert_eq!(184.0, get_height(&mut root_child2));
+        assert_eq!(0.0, get_left(&root_child2));
+        assert_eq!(224.0, get_top(&root_child2));
+        assert_eq!(200.0, get_width(&root_child2));
+        assert_eq!(184.0, get_height(&root_child2));
     }
 }

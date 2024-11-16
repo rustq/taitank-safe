@@ -28,8 +28,8 @@ void set_align_content(std::unique_ptr<TaitankSafeNode> & node, int align_conten
 void set_justify_content(std::unique_ptr<TaitankSafeNode> & node, int justify_content);
 void insert_child(std::unique_ptr<TaitankSafeNode> & node, std::unique_ptr<TaitankSafeNode> & child, int index);
 void do_layout(std::unique_ptr<TaitankSafeNode> & node, double parent_width, double parent_height, int direction);
-double get_width(std::unique_ptr<TaitankSafeNode> & node);
-double get_height(std::unique_ptr<TaitankSafeNode> & node);
-double get_left(std::unique_ptr<TaitankSafeNode> & node);
-double get_top(std::unique_ptr<TaitankSafeNode> & node);
+double get_width(std::unique_ptr<TaitankSafeNode> const & node);
+double get_height(std::unique_ptr<TaitankSafeNode> const & node);
+double get_left(std::unique_ptr<TaitankSafeNode> const & node);
+double get_top(std::unique_ptr<TaitankSafeNode> const & node);
 void print(std::unique_ptr<TaitankSafeNode> const & node);

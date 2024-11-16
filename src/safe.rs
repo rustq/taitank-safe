@@ -32,10 +32,10 @@ pub mod ffi {
             parent_height: f64,
             direction: i32,
         );
-        fn get_width(node: &mut UniquePtr<TaitankSafeNode>) -> f64;
-        fn get_height(node: &mut UniquePtr<TaitankSafeNode>) -> f64;
-        fn get_left(node: &mut UniquePtr<TaitankSafeNode>) -> f64;
-        fn get_top(node: &mut UniquePtr<TaitankSafeNode>) -> f64;
+        fn get_width(node: &UniquePtr<TaitankSafeNode>) -> f64;
+        fn get_height(node: &UniquePtr<TaitankSafeNode>) -> f64;
+        fn get_left(node: &UniquePtr<TaitankSafeNode>) -> f64;
+        fn get_top(node: &UniquePtr<TaitankSafeNode>) -> f64;
         fn print(node: &UniquePtr<TaitankSafeNode>);
     }
 }

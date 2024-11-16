@@ -10,9 +10,9 @@ mod tests {
         taitank_safe::set_direction(&mut node, taitank_safe::Direction::LTR);
         taitank_safe::layout!(&mut node);
 
-        assert_eq!(taitank_safe::get_left(&mut node), 0.0);
-        assert_eq!(taitank_safe::get_top(&mut node), 0.0);
-        assert_eq!(taitank_safe::get_width(&mut node), 100.0);
-        assert_eq!(taitank_safe::get_height(&mut node), 100.0);
+        assert_eq!(taitank_safe::get_left(&node), 0.0);
+        assert_eq!(taitank_safe::get_top(&node), 0.0);
+        assert_eq!(taitank_safe::get_width(&node), 100.0);
+        assert_eq!(taitank_safe::get_height(&node), 100.0);
     }
 }
