@@ -1,6 +1,6 @@
 [package]
-name = "taitank-safe"
-version = "0.1.0"
+name = "taitank_safe"
+version = "0.1.1"
 description = "taitank in safe rust"
 include = ["/src", "README.md", "/include/safe.h", "/include/taitank/src", ".gitmodules", "build.rs"]
 license = "MIT"

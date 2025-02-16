@@ -122,8 +122,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "taitank-safe"
-version = "0.1.0"
+name = "taitank_safe"
+version = "0.1.1"
 dependencies = [
  "cxx",
  "cxx-build",

@@ -2,7 +2,7 @@
 pub mod ffi {
 
     unsafe extern "C++" {
-        include!("taitank-safe/include/safe.h");
+        include!("taitank_safe/include/safe.h");
 
         type TaitankSafeNode;
         fn node_create() -> UniquePtr<TaitankSafeNode>;
