@@ -10,7 +10,7 @@ Rust binding of [tencent/taitank](https://github.com/tencent/taitank) provides s
 
 ```toml
 [dependencies]
-taitank_safe = "0.0.6"
+taitank-safe = "0.1.0"
 ```
 
 ```rust
