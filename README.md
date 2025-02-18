@@ -20,6 +20,7 @@ let mut root = node_create();
 
 set_width(&mut root, 100.0);
 set_height(&mut root, 100.0);
+set_flex_grow(&mut root, 1.0);
 
 layout!(&mut root);
 ```
